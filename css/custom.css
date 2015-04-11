@@ -1,6 +1,5 @@
 body {
     font-family: 'Merriweather', serif;
-    padding-top: 50px;
 }
 .main {
     float: none;
@@ -12,4 +11,7 @@ body {
     font-family: inherit;
     width: 80%;
     height: 70pt;
+}
+#e {
+    padding-top: 50px;
 }

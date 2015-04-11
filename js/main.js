@@ -20,4 +20,6 @@ function sexydown() {
     });
     
     var s = marked(u);
+    var a = document.getElementById("all");
+    a.innerHTML = s;
 }
