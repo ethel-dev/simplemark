@@ -1,11 +1,6 @@
 body {
     font-family: 'Merriweather', serif;
 }
-.main {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-}
 .markdown-input {
     resize: none;
     font-family: inherit;

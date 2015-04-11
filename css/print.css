@@ -1,0 +1,12 @@
+body {
+    width: 100%; 
+    margin: 0; 
+    float: none;
+    padding: none;
+}
+a:link, a:visited {
+    color: #781351;
+}
+#header, #nav, .noprint {
+    display: none;
+}
