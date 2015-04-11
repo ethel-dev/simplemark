@@ -15,9 +15,8 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <!-- JQuery, because Bootstrap needs it and, well, its good to have. -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         
         <!-- Marked, custom stuff, etc. -->
         <script src="js/marked/marked.min.js"></script>
@@ -27,7 +26,6 @@
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -43,12 +41,31 @@
                 <li><a href="http://ethanarterberry.com/sexydown/about.html">About</a></li>
               </ul>
             </div><!--/.nav-collapse -->
-          </div>
         </nav>
-        <div class="main">
-            <h1><b>Sexydown</b></h1>
-            <p><i>Sexydown</i> is a dead simple way to make Markdown code look good enough to print out. Or in nerd language, it templates Markdown code to another HTML page which you can then print.</p>
-            
+        <div class="container-fluid">
+            <div class="main">
+                <h1><b>Sexydown:</b> A sexy way to print Markdown.</h1>
+                <p><i>Sexydown</i> is a dead simple way to make regular Markdown code look elegant and printable. All you have to do is copy and paste your raw Markdown (or Github Flavored Markdown) code and Sexydown will make it elegant and give you a new, printable webpage. Anyone who uses Markdown for documents on a daily basis will find this website pretty helpful, or at least I hope they will!</p>
+                <hr>
+                <p>Put Markdown code here:</p>
+                <textarea class="markdown-input" placeholder="Markdown code." id="ugly"></textarea>
+                <br>
+                <p>Options:</p>
+                <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
+                <br>
+                <input type="checkbox" id="sanitize">&nbsp;&nbsp;<span>Sanitize Markdown code (ignore anything other than Markdown code)?</span>
+                <br>
+                <input type="checkbox" id="pedantic">&nbsp;&nbsp;<span>Use pedantic Markdown?</span>
+                <br>
+                <input type="checkbox" id="smartypants">&nbsp;&nbsp;<span>Enable SmartyPants (use 'smart' quotes and dashes)?</span>
+                <br>
+                <input type="checkbox" id="smartlists">&nbsp;&nbsp;<span>Enable smart lists?</span>
+                <br>
+                <button class="btn btn btn-success" type="button" onclick="sexydown()">Make it sexy!</button>
+                <div id="test">
+                
+                </div>
+            </div>
         </div>
     </body>
 </html>

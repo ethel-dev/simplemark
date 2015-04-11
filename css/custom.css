@@ -3,5 +3,13 @@ body {
     padding-top: 50px;
 }
 .main {
-    padding: 40px 15px;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.markdown-input {
+    resize: none;
+    font-family: inherit;
+    width: 80%;
+    height: 70pt;
 }
