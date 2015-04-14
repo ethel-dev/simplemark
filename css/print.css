@@ -10,3 +10,7 @@ a:link, a:visited {
 #header, #nav, #e, .noprint {
     display: none;
 }
+
+blockquote, ul {
+    margin: 0;
+}
