@@ -18,12 +18,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         
-        <!-- Marked, custom stuff, etc. -->
-        <script src="js/marked/marked.min.js"></script>
+        <!-- Custom JS. -->
+        <script src="js/parsers/marked.min.js"></script>
+        <script src="js/parsers/textile.min.js"></script>
         <script src="js/main.js"></script>
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        
+        <!-- Custom CSS. -->
         <link href="css/custom.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+        <link rel="stylesheet" href="css/print.css" type="text/css" media="print"/>
+        
+        <!-- Custom fonts. -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Gloria+Hallelujah|Open+Sans:400italic,700italic,700,400|Merriweather:400,400italic,700,700italic|Inconsolata:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="all" id="all">
@@ -55,17 +60,44 @@
                         <p>Put Markdown code here:</p>
                         <textarea class="markdown-input" placeholder="Markdown code." id="ugly"></textarea>
                         <br>
-                        <p>Options:</p>
-                        <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
+                        <div id="md-options">
+                          <p><u><b>Markdown Options:</b></u></p>
+                          <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
+                          <br>
+                          <input type="checkbox" checked="yes" id="smartlists">&nbsp;&nbsp;<span>Enable smart lists?</span>
+                          <br>
+                          <input type="checkbox" id="sanitize">&nbsp;&nbsp;<span>Sanitize Markdown code (ignore anything other than Markdown code)?</span>
+                          <br>
+                          <input type="checkbox" id="pedantic">&nbsp;&nbsp;<span>Use pedantic Markdown?</span>
+                          <br>
+                          <input type="checkbox" id="smartypants">&nbsp;&nbsp;<span>Enable SmartyPants (use 'smart' quotes and dashes)?</span>
+                          <br>
+                        </div>
                         <br>
-                        <input type="checkbox" id="sanitize">&nbsp;&nbsp;<span>Sanitize Markdown code (ignore anything other than Markdown code)?</span>
-                        <br>
-                        <input type="checkbox" id="pedantic">&nbsp;&nbsp;<span>Use pedantic Markdown?</span>
-                        <br>
-                        <input type="checkbox" id="smartypants">&nbsp;&nbsp;<span>Enable SmartyPants (use 'smart' quotes and dashes)?</span>
-                        <br>
-                        <input type="checkbox" id="smartlists">&nbsp;&nbsp;<span>Enable smart lists?</span>
-                        <br>
+                        <div id="other-options">
+                          <p><u><b>Other Options:</b></u></p>
+                          <input type="checkbox" id="txt" onchange="mddisable()" title="Textile is an alternative markup language to Markdown, which means the syntax is very different.">&nbsp;&nbsp;<span>Enable Textile?</span>
+                          <br>
+                          <span>Font size:</span>&nbsp;&nbsp;<input type="number" value="12" id="font-size" class="num" min="1">&nbsp;<select id="font-measure"><option id="font-pt">pt</option><option id="font-px">px</option><option id="font-rem">rem</option></select>
+                          <br>
+                          <span>Font family:</span>&nbsp;&nbsp;
+                          <select id="font-family">
+                            <optgroup class="lato">
+                              <option id="lato">Lato</option>
+                            </optgroup>
+                            <optgroup class="gloria">
+                              <option id="gloria">Gloria Hallelujah</option>
+                            </optgroup>
+                            <optgroup class="opensans">
+                              <option id="opensans">Open Sans</option>
+                            </optgroup>
+                            <optgroup class="merriweather">
+                              <option id="merriweather" selected>Merriweather</option>
+                            </optgroup>
+                            <optgroup class="inconsolata">
+                              <option id="inconsolata">Inconsolata</option></select>
+                            </optgroup>
+                        </div>
                         <br>
                         <button class="btn btn btn-success" type="button" onclick="sexydown()">Make it sexy!</button>
                     </div>

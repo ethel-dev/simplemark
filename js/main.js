@@ -1,4 +1,27 @@
 function sexydown() {
+    // Font settings:
+    var font_size = document.getElementById('font-size');
+    // Textile or Markdown?
+    var txt = document.getElementById('txt').checked;
+    if(txt === true)
+    {
+    }
+}
+
+function mddisable() {
+    var txt = document.getElementById('txt').checked;
+    if(txt === true)
+    {
+      $("#md-options :input").attr("disabled", true);
+      $("#md-options :input").attr("checked", false);
+    }
+    else
+    {
+      $("#md-options :input").attr("disabled", false);
+    }
+}
+
+/*
     // Get necesscary variables.
     var u = document.getElementById('ugly').value;
     var gfm = document.getElementById("gfm").checked;
@@ -22,4 +45,4 @@ function sexydown() {
     var s = marked(u);
     document.getElementById("main").innerHTML = s;
     window.print();
-}
+*/

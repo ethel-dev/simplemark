@@ -10,3 +10,29 @@ body {
 #e {
     padding-top: 50px;
 }
+
+.num {
+    width: 40px;
+    height: 25px;
+}
+
+/* Font options. */
+.lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.gloria {
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.opensans {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.merriweather {
+    font-family: 'Merriweather', serif;
+}
+
+.inconsolata {
+    font-family: 'Inconsolata', monospace;
+}
