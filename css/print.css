@@ -4,12 +4,6 @@ body {
     float: none;
     padding: none;
 }
-p {
-    font-size: 12pt;
-}
-a:link, a:visited {
-    color: #781351;
-}
 #header, #nav, #e, .noprint {
     display: none;
 }

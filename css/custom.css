@@ -22,7 +22,7 @@ body {
 }
 
 .gloria {
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Gloria Hallelujah';
 }
 
 .opensans {
@@ -34,5 +34,5 @@ body {
 }
 
 .inconsolata {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata';
 }
