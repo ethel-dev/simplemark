@@ -22,6 +22,7 @@
         <script src="js/parsers/marked.min.js"></script>
         <script src="js/parsers/textile.min.js"></script>
         <script src="js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
         
         <!-- Custom CSS. -->
         <link href="css/custom.css" rel="stylesheet">
@@ -31,7 +32,7 @@
         <!-- Custom fonts. -->
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Gloria+Hallelujah|Open+Sans:400italic,700italic,700,400|Merriweather:400,400italic,700,700italic|Inconsolata:400,700' rel='stylesheet' type='text/css'>
     </head>
-    <body>
+    <body onload="load()">
         <div class="all" id="all">
             <div id="e">
                 <nav class="navbar navbar-inverse navbar-fixed-top" id="nav">
@@ -54,8 +55,14 @@
                     </div><!--/.nav-collapse -->
                 </nav>
             </div>
+            
                 <div class="container-fluid">
                     <div class="main" id="main">
+                      <br>
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <strong>Tip:</strong> type <code>S-E-X-Y</code> to make it sexy, fast!
+                        </div>
                         <h1><b>Sexydown:</b> A sexy way to print Markdown.</h1>
                         <p><i>Sexydown</i> is a dead simple way to make regular Markdown (and Textile!) code look elegant and printable. All you have to do is copy and paste your raw Markdown, GitHub Flavored Markdown, or Textile code and Sexydown will make it elegant and give you a new, printable webpage. Anyone who uses Markdown for documents on a daily basis will find this website pretty helpful, or at least I hope they will!</p>
                         <hr>
@@ -91,10 +98,9 @@
                               <option id="inconsolata">Inconsolata</option></select>
                         </div>
                         <br>
-                        <button class="btn btn btn-success" type="button" onclick="sexydown()">Make it sexy!</button>
+                        <button class="btn btn btn-success" type="button" onclick="sexydown()" title="Execute the New Sexy Order.">Make it sexy!</button>
                     </div>
                 </div>
-            
         </div>
     </body>
 </html>
