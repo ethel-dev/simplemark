@@ -2,8 +2,10 @@ body {
     font-family: 'Merriweather', serif;
 }
 .markdown-input {
-    resize: none;
-    font-family: inherit;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: inherit;
+	resize: none;
     width: 80%;
     height: 70pt;
 }
