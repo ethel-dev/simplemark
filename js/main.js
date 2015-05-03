@@ -74,7 +74,7 @@ function sexydown() {
       
       s = marked(u);
       document.getElementById("main").innerHTML = s;
-      window.print();
+      window.setTimeout("window.print();", 1000);
     }
 }
 
