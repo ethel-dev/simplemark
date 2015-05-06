@@ -2,7 +2,7 @@
 Sexydown JavaScript
 */
 function sexydown() {
-    $("#modedrop").typeOut();
+    $("#modedrop").fadeOut();
     var u = document.getElementById('ugly').value;
     var s;
     // Font settings:
