@@ -54,7 +54,7 @@ function sexydown() {
     {
       s = textile(u);
       document.getElementById("main").innerHTML = s;
-      window.print();
+      window.setTimeout("window.print();", 1000);
     }
     else
     {
@@ -79,6 +79,7 @@ function sexydown() {
       document.getElementById("main").innerHTML = s;
       window.setTimeout("window.print();", 1000);
     }
+    $("#modedrop").collapse("hide");
 }
 
 function mddisable() {
