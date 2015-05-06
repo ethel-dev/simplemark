@@ -1,3 +1,6 @@
+/*
+Sexydown JavaScript
+*/
 function sexydown() {
     var u = document.getElementById('ugly').value;
     var s;
@@ -90,6 +93,19 @@ function mddisable() {
       $("#md-options :input").attr("disabled", false);
     }
 }
+
+function windowcontroller(what) {
+    switch(what) {
+        case "lml":
+            $("#lml-content").collapse("show");
+            $("#code-content").collapse("hide");
+            break;
+        case "code":
+            $("#lml-content").collapse("hide");
+            $("#code-content").collapse("show");
+            break;
+    }
+} 
 
 function load() {
     Mousetrap.bind('s e x y', function() { sexydown(); });
