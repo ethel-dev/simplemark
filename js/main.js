@@ -2,7 +2,7 @@
 Sexydown JavaScript
 */
 function sexydown() {
-    $("#modedrop").slideUp();
+    $("#modedrop").typeOut({ marker : '|', delay : 250, preserve : false });
     var u = document.getElementById('ugly').value;
     var s;
     // Font settings:
