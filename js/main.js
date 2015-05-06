@@ -2,6 +2,7 @@
 Sexydown JavaScript
 */
 function sexydown() {
+    $("#modedrop").collapse("hide");
     var u = document.getElementById('ugly').value;
     var s;
     // Font settings:
@@ -79,7 +80,6 @@ function sexydown() {
       document.getElementById("main").innerHTML = s;
       window.setTimeout("window.print();", 1000);
     }
-    $("#modedrop").collapse("hide");
 }
 
 function mddisable() {
