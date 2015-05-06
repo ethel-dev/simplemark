@@ -53,59 +53,74 @@
                         <li><a href="https://github.com/sargeant45/Sexydown">GitHub project</a></li>
                         <li><a href="http://ethanarterberry.com/">More from Ethan Arterberry</a></li>
                       </ul>
-                    </div><!--/.nav-collapse -->
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mode<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a onclick="windowcontroller('lml');">Lightweight Markup Languages</a></li>
+                          <li><a onclick="windowcontroller('code');">Source Code</a></li>
+                        </ul>
+                      </li>
+                    </div>
                 </nav>
             </div>
             
                 <div class="container-fluid">
                     <div class="main" id="main">
-                      <br>
-                        <div class="alert alert-warning alert-dismissible" role="alert">
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <strong>Tip:</strong> type <code>S-E-X-Y</code> to make it sexy, fast!
-                        </div>
                         <h1><b>Sexydown:</b> A sexy way to print Markdown.</h1>
                         <p><i>Sexydown</i> is a dead simple way to make regular Markdown (and Textile!) code look elegant and printable. All you have to do is copy and paste your raw Markdown, GitHub Flavored Markdown, or Textile code and Sexydown will make it elegant and give you a new, printable webpage. Anyone who uses Markdown for documents on a daily basis will find this website pretty helpful, or at least I hope they will!</p>
                         <hr>
-                        <p>Put Markdown code here:</p>
-                        <textarea class="markdown-input" placeholder="Markdown code." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="ugly"></textarea>
-                        <br>
-                        <div id="md-options">
-                          <p><u><b>Markdown Options:</b></u></p>
-                          <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
+                        <div id="lml-content">
                           <br>
-                          <input type="checkbox" checked="yes" id="smartlists">&nbsp;&nbsp;<span>Enable smart lists?</span>
+                          <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Tip:</strong> type <code>S-E-X-Y</code> to make it sexy, fast!
+                          </div>
+                          <p>Put Markdown code here:</p>
+                          <textarea class="markdown-input" placeholder="Markdown code." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="ugly"></textarea>
                           <br>
-                          <input type="checkbox" id="sanitize">&nbsp;&nbsp;<span>Sanitize Markdown code (ignore anything other than Markdown code)?</span>
+                          <div id="md-options">
+                            <p><u><b>Markdown Options:</b></u></p>
+                            <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
+                            <br>
+                            <input type="checkbox" checked="yes" id="smartlists">&nbsp;&nbsp;<span>Enable smart lists?</span>
+                            <br>
+                            <input type="checkbox" id="sanitize">&nbsp;&nbsp;<span>Sanitize Markdown code (ignore anything other than Markdown code)?</span>
+                            <br>
+                            <input type="checkbox" id="pedantic">&nbsp;&nbsp;<span>Use pedantic Markdown?</span>
+                            <br>
+                            <input type="checkbox" id="smartypants">&nbsp;&nbsp;<span>Enable SmartyPants (use 'smart' quotes and dashes)?</span>
+                            <br>
+                          </div>
                           <br>
-                          <input type="checkbox" id="pedantic">&nbsp;&nbsp;<span>Use pedantic Markdown?</span>
+                          <div id="other-options">
+                            <p><u><b>Other Options:</b></u></p>
+                            <input type="checkbox" id="txt" onchange="mddisable()" title="Textile is an alternative markup language to Markdown, which means the syntax is very different.">&nbsp;&nbsp;<span>Enable Textile?</span>
+                            <br>
+                            <span>Font size:</span>&nbsp;&nbsp;<input type="number" value="12" id="font-size" class="num" min="1">&nbsp;<select id="font-measure"><option name="pt">pt</option><option name="px">px</option><option name="rem">rem</option></select>
+                            <br>
+                            <span>Font family:</span>&nbsp;&nbsp;
+                            <select id="font-family">
+                                <option id="lato">Lato</option>
+                                <option id="gloria">Gloria Hallelujah</option>
+                                <option id="opensans">Open Sans</option>
+                                <option id="merriweather" selected>Merriweather</option>
+                                <option id="inconsolata">Inconsolata</option>
+                            </select>
+                          </div>
                           <br>
-                          <input type="checkbox" id="smartypants">&nbsp;&nbsp;<span>Enable SmartyPants (use 'smart' quotes and dashes)?</span>
+                          <button class="btn btn btn-success" type="button" onclick="sexydown()" title="Execute the New Sexy Order.">Make it sexy!</button>
                           <br>
                         </div>
-                        <br>
-                        <div id="other-options">
-                          <p><u><b>Other Options:</b></u></p>
-                          <input type="checkbox" id="txt" onchange="mddisable()" title="Textile is an alternative markup language to Markdown, which means the syntax is very different.">&nbsp;&nbsp;<span>Enable Textile?</span>
-                          <br>
-                          <span>Font size:</span>&nbsp;&nbsp;<input type="number" value="12" id="font-size" class="num" min="1">&nbsp;<select id="font-measure"><option name="pt">pt</option><option name="px">px</option><option name="rem">rem</option></select>
-                          <br>
-                          <span>Font family:</span>&nbsp;&nbsp;
-                          <select id="font-family">
-                              <option id="lato">Lato</option>
-                              <option id="gloria">Gloria Hallelujah</option>
-                              <option id="opensans">Open Sans</option>
-                              <option id="merriweather" selected>Merriweather</option>
-                              <option id="inconsolata">Inconsolata</option></select>
+                        <div id="code-content">
+                          <textarea class="markdown-input" placeholder="Source code to print." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="sourcecode"></textarea>
                         </div>
-                        <br>
-                        <button class="btn btn btn-success" type="button" onclick="sexydown()" title="Execute the New Sexy Order.">Make it sexy!</button>
-                        <br>
                         <p><i>Open-source under the Unlicense.</i></p>
                     </div>
                 </div>
         </div>
+        <span id="open"></span>
         <script>
+        windowcontroller("lml");
         function setbg(color)
         {
             document.getElementById("ugly").style.background = color;
