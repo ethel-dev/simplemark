@@ -1,21 +1,72 @@
 body {
     font-family: 'Merriweather', serif;
 }
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+pre {
+  background-color: white;
+  border: none;
+}
+
 .markdown-input {
 	border: 3px solid #cccccc;
 	padding: 5px;
 	font-family: inherit;
 	resize: none;
-    width: 80%;
-    height: 70pt;
+  width: 80%;
+  height: 70pt;
+}
+
+.code-input {
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: "Inconsolata", monospace;
+	resize: none;
+  width: 100%;
+  height: 100pt;
+}
+
+.input {
+  font-family: inherit;
+  border: 3px solid #cccccc;
+  width: 30%;
+  padding: 5px;
+}
+#mdtitle {
+  transition: color 3s;
 }
 #e {
-    padding-top: 50px;
+  padding-top: 50px;
 }
 
 .num {
     width: 40px;
     height: 25px;
+}
+
+.code {
+    width: 100%;
+    height: 100%;
 }
 
 /* Font options. */
