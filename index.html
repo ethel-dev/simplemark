@@ -12,9 +12,9 @@
         
         <!-- Bootstrap, templates, etc. -->
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link title="bootstrap" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link title="bootstraptheme" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -22,19 +22,22 @@
         <!-- Custom JS. -->
         <script src="js/parsers/marked.min.js"></script>
         <script src="js/parsers/textile.min.js"></script>
-        <script src="js/typeout.min.js"></script>
         <script src="js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+        <script src="js/highlight.pack.js"></script>
+        <script src="https://cdn.rawgit.com/mattboldt/typed.js/master/js/typed.js"></script>
         
         <!-- Custom CSS. -->
         <link href="css/custom.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/print.css" type="text/css" media="print"/>
+        <link title="printstyle" rel="stylesheet" href="css/print.css" type="text/css" media="print"/>
         <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/googlecode.min.css">
         
         <!-- Custom fonts. -->
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Gloria+Hallelujah|Open+Sans:400italic,700italic,700,400|Merriweather:400,400italic,700,700italic|Inconsolata:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body onload="load()">
+      <pre class="collapse" id="codepre"><code class="hljs" id="codeoutput"></code></pre>
         <div class="all" id="all">
             <div id="e">
                 <nav class="navbar navbar-inverse navbar-fixed-top" id="nav">
@@ -45,7 +48,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="http://ethanarterberry.com/Sexydown">Sexydown</a>
+                      <a class="navbar-brand" href="http://ethanarterberry.com/Sexydown">Sexydown 3</a>
                     </div>
                     <div id="navbar" class="collapse navbar-collapse">
                       <ul class="nav navbar-nav">
@@ -55,6 +58,8 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a onclick="windowcontroller('lml');">Lightweight Markup Languages</a></li>
                                 <li><a onclick="windowcontroller('code');">Source Code</a></li>
+                                <li class="divider"></li>
+                                <li><a title="(BETA) Create a custom URL." href="url.html">URL Parameters</a></li>
                             </ul>
                         </li>
                         <li><a href="http://ethanarterberry.com/Sexydown/ex/ex.html">Examples</a></li>
@@ -67,8 +72,8 @@
             
                 <div class="container-fluid">
                     <div class="main" id="main">
-                        <h1><b>Sexydown:</b> A sexy way to print Markdown.</h1>
-                        <p><i>Sexydown</i> is a dead simple way to make regular Markdown (and Textile!) code look elegant and printable. All you have to do is copy and paste your raw Markdown, GitHub Flavored Markdown, or Textile code and Sexydown will make it elegant and give you a new, printable webpage. Anyone who uses Markdown for documents on a daily basis will find this website pretty helpful, or at least I hope they will!</p>
+                        <h1 id="title"><b>Sexydown 3:</b> A sexy way to print <span id="titlespan">Markdown.</span></h1>
+                        <p id="bodytext"><p><strong>Sexydown</strong> is a useful, completely public domain, free website that prints code beautifully minimalistic on paper. It can compile Markdown and Textile markup to HTML and print it with a variety of options, and it can print 118 languages in beautifully syntax-highlighted glory on paper. Better yet, you can create a custom URL using the <a href="url.html">URL generator</a> that will check the options for you. Sexydown 3 has many new features that make it a fully-featured printing utility belt that you'll keep in your bookmarks for all eternity. If you're a nerd, you will be pleased to hear that Sexydown 3 is public domain on <a href="https://github.com/sargeant45/Sexydown">GitHub.</a></p></p>
                         <hr>
                         <div id="lml-content">
                           <br>
@@ -113,9 +118,13 @@
                           <br>
                         </div>
                         <div id="code-content" class="collapse">
-                          <textarea class="markdown-input" placeholder="Source code to print." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="sourcecode"></textarea>
+                          <label for="lang"><a href="http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html" title="List of languages supported.">Language name:</a>&nbsp;</label><input class="input inconsolata" id="lang" type="text" placeholder="Default is automatic." onblur="setbg('white')" onfocus="setbg('#e5fff3');">
+                          <br>
+                          <br>
+                          <textarea class="code-input" placeholder="Source code to print." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="sourcecode"></textarea>
+                          <br>
+                          <button class="btn btn btn-success" type="button" title="Execute the New Sexy Order." onclick="papercode();">Make it sexy!</button>
                         </div>
-                        <p><i>Open-source under the Unlicense.</i></p>
                     </div>
                 </div>
         </div>
@@ -125,6 +134,8 @@
         function setbg(color)
         {
             document.getElementById("ugly").style.background = color;
+            document.getElementById("sourcecode").style.background = color;
+            document.getElementById("lang").style.background = color;
         }
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
