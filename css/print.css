@@ -12,6 +12,10 @@ body {
     display: none;
 }
 
+#e {
+    padding-top: 0px;
+}
+
 blockquote, ul {
     margin: 0;
 }
