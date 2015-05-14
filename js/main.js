@@ -54,7 +54,7 @@ function sexydown() {
     if(txt === true)
     {
       s = textile(u);
-      document.getElementById("main").innerHTML = s;
+      document.getElementById("cont").innerHTML = s;
       window.setTimeout(function() {window.print();}, 1000);
     }
     else
@@ -77,7 +77,7 @@ function sexydown() {
       });
       
       s = marked(u);
-      document.getElementById("main").innerHTML = s;
+      document.getElementById("cont").innerHTML = s;
       window.setTimeout(function(){window.print();}, 1000);
     }
 }
