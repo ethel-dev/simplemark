@@ -5,17 +5,9 @@ body {
     padding: none;
     line-height: 1.3;
 }
-@page {
-    margin: 0cm;
-}
 #header, #nav, #e, #codepre, #codeoutput, .noprint {
     display: none;
 }
-
-#e {
-    padding-top: 0px;
-}
-
 blockquote, ul {
     margin: 0;
 }
