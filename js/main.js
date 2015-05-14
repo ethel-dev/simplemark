@@ -267,7 +267,14 @@ function loadparams() {
     }
     
     // Set Font Size
-    document.getElementById("font-size").value = fs;
+    if(fs !== null)
+    {
+        document.getElementById("font-size").value = fs;
+    }
+    else
+    {
+        document.getElementById("font-size").value = 12;
+    }
 
     // Set Font Family
     switch(ff) {
