@@ -155,6 +155,7 @@ function doShake(){function c(){var e=document.createElement("link");e.setAttrib
 function papercode() {
   $('link[title=bootstraptheme]')[0].remove();
   $('link[title=bootstrap]')[0].remove();
+  $('link[title=printstyle]')[0].remove();
   var code = document.getElementById("sourcecode").value;
   var lang = document.getElementById("lang").value;
   var output = document.getElementById("codeoutput");
