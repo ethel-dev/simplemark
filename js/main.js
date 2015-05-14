@@ -155,7 +155,6 @@ function doShake(){function c(){var e=document.createElement("link");e.setAttrib
 function papercode() {
   $('link[title=bootstraptheme]')[0].remove();
   $('link[title=bootstrap]')[0].remove();
-  $('link[title=printstyle]')[0].remove();
   var code = document.getElementById("sourcecode").value;
   var lang = document.getElementById("lang").value;
   var output = document.getElementById("codeoutput");
@@ -268,13 +267,13 @@ function loadparams() {
     }
     
     // Set Font Size
-    if(fs !== null)
+    if(fs === null || fs === "")
     {
-        document.getElementById("font-size").value = fs;
+        document.getElementById("font-size").value = 12;
     }
     else
     {
-        document.getElementById("font-size").value = 12;
+        document.getElementById("font-size").value = fs;
     }
 
     // Set Font Family
