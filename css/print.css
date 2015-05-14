@@ -1,4 +1,4 @@
-body, .main {
+body, .main, #cont {
     width: 100%; 
     margin: 0px;
     float: none;
@@ -8,7 +8,7 @@ body, .main {
 @page {
     margin: 0cm;
 }
-#header, #nav, #e, #codepre, .noprint {
+#header, #nav, #e, #codepre, #codeoutput, .noprint {
     display: none;
 }
 
