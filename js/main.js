@@ -206,7 +206,14 @@ function loadparams() {
     var val = decodeURIComponent(getQueryParams("val")); // Text
     
     // Set textbox to specified value
-    document.getElementById("ugly").innerHTML = val;
+    if(val !== null || val !== "")
+    {
+        document.getElementById("ugly").innerHTML = val;
+    }
+    else
+    {
+        document.getElementById("ugly").innerHTML = "";
+    }
     
     // Set GitHub Flavored Markdown
     if(gfm === "true")
@@ -279,7 +286,7 @@ function loadparams() {
     // Set Font Size
     if(fs === null || fs === "")
     {
-        document.getElementById("font-size").value = 12;
+        document.getElementById("font-size").value = "12";
     }
     else
     {
