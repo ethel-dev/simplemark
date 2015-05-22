@@ -104,7 +104,7 @@ function windowcontroller(what) {
             $("#code-content").collapse("show");
             break;
     }
-} 
+}
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex ;
 
@@ -131,7 +131,7 @@ function load() {
   });
   var langs = ["Markdown.", "Textile.", "C#.", "JavaScript.", "Perl.", "Java.", "Python.", "Ruby.", "Rust.", "R.", "PHP.", "HTML.", "CSS.", "Bash.", "CoffeeScript.", "SQL.", "Objective-C.", "C++.", "Apache.", "HTTP.", "JSON.", "FORTRAN.", "Processing.", "Brainf**k.", "Smalltalk.", "Cloqure.", "Dart.", "Go.", "VB.NET.", "Swift.", "Matlab.", "Haml.", "DOS .bat.", "Scala.", "Haskell.", "Lua.", "TeX.", "F#.", "Django.", "Lisp.", "AutoHotkey.", "LESS.", "SASS."];
   shuffle(langs);
-  $("#titlespan").typed({ 
+  $("#titlespan").typed({
     strings: langs,
     // typing speed
     typeSpeed: 0,
@@ -197,6 +197,11 @@ function loadparams() {
     var txt = getQueryParams("txt"); // Textile
     var fs = getQueryParams("fs"); // Font size (pt)
     var ff = getQueryParams("ff"); // Font family
+    var enval = getQueryParams("val");
+    var val = decodeURI(enval);
+    
+    // Set textbox to specified value
+    document.getElementById("ugly").value = val;
     
     // Set GitHub Flavored Markdown
     if(gfm === "true")
@@ -307,6 +312,8 @@ function generateurl() {
   var smartypants = document.getElementById("smartypants").checked.toString();
   var smartlists = document.getElementById("smartlists").checked.toString();
   var txt = document.getElementById('txt').checked.toString();
+  // URL friendly!
+  var val = encodeURI(document.getElementById('url-text').value);
   
   var ff;
   switch(font_family)
@@ -328,7 +335,7 @@ function generateurl() {
         break;
   }
   
-  var link = "http://ethanarterberry.com/Sexydown?gfm=" + gfm + "&sl=" + smartlists + "&san=" + sanitize + "&ped=" + pedantic + "&sp=" + smartypants + "&txt=" + txt + "&fs=" + font_size + "&ff=" + ff;
+  var link = "http://ethanarterberry.com/Sexydown?gfm=" + gfm + "&sl=" + smartlists + "&san=" + sanitize + "&ped=" + pedantic + "&sp=" + smartypants + "&txt=" + txt + "&fs=" + font_size + "&ff=" + ff + "&val=" + val;
   document.getElementById("link").innerHTML = link;
   $("#link").attr("href", link);
 }
