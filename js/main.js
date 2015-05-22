@@ -206,7 +206,7 @@ function loadparams() {
     var val = decodeURIComponent(getQueryParams("val")); // Text
     
     // Set textbox to specified value
-    if(val === undefined)
+    if(getQueryParams("val") === undefined)
     {
         document.getElementById("ugly").value = "";
     }
