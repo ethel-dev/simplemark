@@ -164,7 +164,7 @@ function papercode() {
   if(lang !== null)
   {
     $("#codeoutput").addClass(lang);
-    output.innerHTML = code;
+    output.innerText = code;
     $('pre code').each(function(i, block) {
       hljs.highlightBlock(block);
     });
@@ -173,7 +173,7 @@ function papercode() {
   }
   else
   {
-    output.innerHTML = code;
+    output.innerText = code;
     $('pre code').each(function(i, block) {
       hljs.highlightBlock(block);
     });
