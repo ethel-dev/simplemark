@@ -206,13 +206,13 @@ function loadparams() {
     var val = decodeURIComponent(getQueryParams("val")); // Text
     
     // Set textbox to specified value
-    if(val === undefined)
+    if(val === undefined || val === "" || val === null)
     {
-        document.getElementById("ugly").innerHTML = null;
+        document.getElementById("ugly").value = "";
     }
     else
     {
-        document.getElementById("ugly").innerHTML = val;
+        document.getElementById("ugly").value = val;
     }
     
     // Set GitHub Flavored Markdown
