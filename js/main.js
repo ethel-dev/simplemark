@@ -182,11 +182,18 @@ function papercode() {
   }
   window.setTimeout(function(){window.print();}, 1000);
 }
-function getQueryParams(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+function getQueryParams(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
+            return sParameterName[1];
+        }
+    }
 }
 function loadparams() {
     var gfm = getQueryParams("gfm"); // GitHub Flavored Markdown
@@ -197,11 +204,10 @@ function loadparams() {
     var txt = getQueryParams("txt"); // Textile
     var fs = getQueryParams("fs"); // Font size (pt)
     var ff = getQueryParams("ff"); // Font family
-    var enval = getQueryParams("val");
-    var val = decodeURI(enval);
+    var val = decodeURIComponent(getQueryParams("val")); // Text
     
     // Set textbox to specified value
-    document.getElementById("ugly").value = val;
+    document.getElementById("ugly").innerHTML = val;
     
     // Set GitHub Flavored Markdown
     if(gfm === "true")
@@ -302,6 +308,7 @@ function loadparams() {
           document.getElementById('font-family').selectedIndex = 3;
           break;
     }
+    return "Done getting parameters.";
 }
 function generateurl() {
   var font_size = document.getElementById('font-size').value;
@@ -313,7 +320,7 @@ function generateurl() {
   var smartlists = document.getElementById("smartlists").checked.toString();
   var txt = document.getElementById('txt').checked.toString();
   // URL friendly!
-  var val = encodeURI(document.getElementById('url-text').value);
+  var val = encodeURIComponent(document.getElementById('url-text').value);
   
   var ff;
   switch(font_family)
