@@ -206,7 +206,7 @@ function loadparams() {
     var val = decodeURIComponent(getQueryParams("val")); // Text
     
     // Set textbox to specified value
-    if(val !== null || val !== "")
+    if(val !== null || val !== "" || val !== undefined)
     {
         document.getElementById("ugly").innerHTML = val;
     }
@@ -284,7 +284,7 @@ function loadparams() {
     }
     
     // Set Font Size
-    if(fs === null || fs === "")
+    if(fs === null || fs === "" || fs === undefined)
     {
         document.getElementById("font-size").value = "12";
     }
