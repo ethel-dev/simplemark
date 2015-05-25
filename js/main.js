@@ -218,7 +218,7 @@ function loadparams() {
     }
     
     // Set textbox to Gist, if Gist ID is specified
-    if(getQueryParams("gist") !== undefined)
+    if(getQueryParams("gistid") !== undefined)
     {
         $.ajax({
           url: 'https://api.github.com/gists/'+gistid,
@@ -228,7 +228,7 @@ function loadparams() {
             var names = Object.keys(gistdata.data.files);
             var content = gistdata.data.files[names[0]].content;
             document.getElementById("ugly").value = content;
-            console.log("Gist " + gistid + "loaded successfully.");
+            console.log("Gist " + gistid + " loaded successfully.");
         }).error( function(e) {
           console.log("There was an error loading Gist " + gistid);
         });
