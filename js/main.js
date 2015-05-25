@@ -1,5 +1,7 @@
 /*
+<main.js>
 Sexydown JavaScript
+written in 2015 by Ethan Arterberry
 */
 function sexydown() {
     $("#modedrop").fadeOut();
@@ -181,8 +183,7 @@ function papercode() {
   }
   window.setTimeout(function(){window.print();}, 1000);
 }
-function getQueryParams(sParam)
-{
+function getQueryParams(sParam){
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++)
@@ -204,6 +205,7 @@ function loadparams() {
     var fs = getQueryParams("fs"); // Font size (pt)
     var ff = getQueryParams("ff"); // Font family
     var val = decodeURIComponent(getQueryParams("val")); // Text
+    var gistid = decodeURIComponent(getQueryParams("gistid")); // Gist ID
     
     // Set textbox to specified value
     if(getQueryParams("val") === undefined)
@@ -213,6 +215,23 @@ function loadparams() {
     else
     {
         document.getElementById("ugly").value = val;
+    }
+    
+    // Set textbox to Gist, if Gist ID is specified
+    if(getQueryParams("gist") !== undefined)
+    {
+        $.ajax({
+          url: 'https://api.github.com/gists/'+gistid,
+          type: 'GET',
+          dataType: 'jsonp'
+        }).success( function(gistdata) {
+            var names = Object.keys(gistdata.data.files);
+            var content = gistdata.data.files[names[0]].content;
+            document.getElementById("ugly").value = content;
+            console.log("Gist " + gistid + "loaded successfully.");
+        }).error( function(e) {
+          console.log("There was an error loading Gist " + gistid);
+        });
     }
     
     // Set GitHub Flavored Markdown
@@ -327,6 +346,7 @@ function generateurl() {
   var txt = document.getElementById('txt').checked.toString();
   // URL friendly!
   var val = encodeURIComponent(document.getElementById('url-text').value);
+  var gist = encodeURIComponent(document.getElementById("gistid").value);
   
   var ff;
   switch(font_family)
@@ -348,7 +368,7 @@ function generateurl() {
         break;
   }
   
-  var link = "http://ethanarterberry.com/Sexydown?gfm=" + gfm + "&sl=" + smartlists + "&san=" + sanitize + "&ped=" + pedantic + "&sp=" + smartypants + "&txt=" + txt + "&fs=" + font_size + "&ff=" + ff + "&val=" + val;
+  var link = "http://ethanarterberry.com/Sexydown?gfm=" + gfm + "&sl=" + smartlists + "&san=" + sanitize + "&ped=" + pedantic + "&sp=" + smartypants + "&txt=" + txt + "&fs=" + font_size + "&ff=" + ff + "&val=" + val + "&gist=" + gist;
   document.getElementById("link").innerHTML = link;
   $("#link").attr("href", link);
 }

@@ -22,6 +22,7 @@
         <script src="js/main.js"></script>
         <script src="https://cdn.rawgit.com/mattboldt/typed.js/master/js/typed.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+        <script src="https://cdn.rawgit.com/michael/github/master/github.js"></script>
         
         
         <!-- Custom CSS. -->
@@ -67,7 +68,10 @@
                         <p><b>URL Generator:</b> Create a custom URL with options built in for speed.</p>
                         <hr>
                         <br>
-                        <textarea class="markdown-input" id="url-text" onblur="setbg('white')" onfocus="setbg('#e5fff3');" placeholder="Put Markdown/Textile here. It will be welded into the URL."></textarea>
+                        <textarea class="markdown-input" id="url-text" onblur="setbg('white')" onfocus="setbg('#e5fff3');" placeholder="Put Markdown/Textile here. It will be welded into the URL as default text."></textarea>
+                        <br>
+                        <label for="gistid">Gist ID:&nbsp;</label><input class="input" type="text" title="ID of a GitHub Gist. [NOTE: Default text will be overridden.]" placeholder="ID of a GitHub Gist. [NOTE: Default text will be overridden.]" onblur="setbg('white')" onfocus="setbg('#e5fff3');" style="width:50%;" id="gistid">
+                        <br>
                         <div id="md-options">
                             <p><u><b>Markdown Options:</b></u></p>
                             <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
