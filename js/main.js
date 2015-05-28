@@ -95,6 +95,21 @@ function mddisable() {
       $("#md-options :input").attr("disabled", false);
     }
 }
+function codeurl() {
+    var txt = document.getElementById('code').checked;
+    if(txt === true)
+    {
+      $("#md-options :input").attr("disabled", true);
+      $("#md-options :input").attr("checked", false);
+      $("#other-options :input").attr("disabled", true);
+      $("#other-options :input").attr("checked", false);
+    }
+    else
+    {
+      $("#md-options :input").attr("disabled", false);
+      $("#other-options :input").attr("disabled", false);
+    }
+}
 function windowcontroller(what) {
     switch(what) {
         case "lml":
@@ -206,134 +221,169 @@ function loadparams() {
     var ff = getQueryParams("ff"); // Font family
     var val = decodeURIComponent(getQueryParams("val")); // Text
     var gistid = decodeURIComponent(getQueryParams("gistid")); // Gist ID
-    
+    var code = getQueryParams("code"); // Code
     // Set textbox to specified value
-    if(getQueryParams("val") === undefined)
+    if(code !== "true")
     {
-        document.getElementById("ugly").value = "";
-    }
-    else
-    {
-        document.getElementById("ugly").value = val;
-    }
+        if(getQueryParams("val") === undefined)
+        {
+            document.getElementById("ugly").value = "";
+        }
+        else
+        {
+            document.getElementById("ugly").value = val;
+        }
+        
+        // Set textbox to Gist, if Gist ID is specified
+        if(getQueryParams("gistid") !== undefined)
+        {
+            $.ajax({
+              url: 'https://api.github.com/gists/'+gistid,
+              type: 'GET',
+              dataType: 'jsonp'
+            }).success( function(gistdata) {
+                var names = Object.keys(gistdata.data.files);
+                var content = gistdata.data.files[names[0]].content;
+                document.getElementById("ugly").value = content;
+                console.log("Gist " + gistid + " loaded successfully.");
+            }).error( function(e) {
+              console.log("There was an error loading Gist " + gistid);
+            });
+        }
+        
+        // Set GitHub Flavored Markdown
+        if(gfm === "true")
+        {
+            $("#gfm").attr("checked", true);
+        }
+        else if(gfm === "false")
+        {
+            $("#gfm").attr("checked", false);
+        }
+        else
+        {
+            $("#gfm").attr("checked", true);
+        }
+        // Set Smart Lists
+        if(lists === "true")
+        {
+            $("#smartlists").attr("checked", true);
+        }
+        else if(lists === "false")
+        {
+            $("#smartlists").attr("checked", false);
+        }
+        else
+        {
+            $("#gfm").attr("checked", true);
+        }
+        
+        // Set Sanitize?
+        if(san === "true")
+        {
+            $("#sanitize").attr("checked", true);
+        }
+        else
+        {
+            $("#sanitize").attr("checked", false);
+        }
+        
+        // Set Pedantic Markdown
+        if(pedant === "true")
+        {
+            $("#pedantic").attr("checked", true);
+        }
+        else
+        {
+            $("#pedantic").attr("checked", false);
+        }
+        
+        // Set Smartypants
+        if(sp === "true")
+        {
+            $("#smartypants").attr("checked", true);
+        }
+        else
+        {
+            $("#smartypants").attr("checked", false);
+        }
+        
+        // Set Textile
+        if(txt === "true")
+        {
+            $("#txt").attr("checked", true);
+            mddisable();
+        }
+        else
+        {
+            $("#txt").attr("checked", false);
+        }
+        
+        // Set Font Size
+        if(fs === null || fs === "" || fs === undefined)
+        {
+            document.getElementById("font-size").value = "12";
+        }
+        else
+        {
+            document.getElementById("font-size").value = fs;
+        }
     
-    // Set textbox to Gist, if Gist ID is specified
-    if(getQueryParams("gistid") !== undefined)
-    {
-        $.ajax({
-          url: 'https://api.github.com/gists/'+gistid,
-          type: 'GET',
-          dataType: 'jsonp'
-        }).success( function(gistdata) {
-            var names = Object.keys(gistdata.data.files);
-            var content = gistdata.data.files[names[0]].content;
-            document.getElementById("ugly").value = content;
-            console.log("Gist " + gistid + " loaded successfully.");
-        }).error( function(e) {
-          console.log("There was an error loading Gist " + gistid);
-        });
-    }
-    
-    // Set GitHub Flavored Markdown
-    if(gfm === "true")
-    {
-        $("#gfm").attr("checked", true);
-    }
-    else if(gfm === "false")
-    {
-        $("#gfm").attr("checked", false);
+        // Set Font Family
+        switch(ff) {
+            case "lato":
+              document.getElementById('font-family').selectedIndex = 0;
+              break;
+            case "gloria":
+              document.getElementById('font-family').selectedIndex = 1;
+              break;
+            case "opensans":
+              document.getElementById('font-family').selectedIndex = 2;
+              break;
+            case "merri":
+              document.getElementById('font-family').selectedIndex = 3;
+              break;
+            case "incons":
+              document.getElementById('font-family').selectedIndex = 4;
+              break;
+            default:
+              document.getElementById('font-family').selectedIndex = 3;
+              break;
+        }
+        return "Done getting parameters.";   
     }
     else
     {
-        $("#gfm").attr("checked", true);
+        windowcontroller("code");
+        if(getQueryParams("val") === undefined)
+        {
+            document.getElementById("sourcecode").value = "";
+        }
+        else
+        {
+            document.getElementById("sourcecode").value = val;
+        }
+        
+        // Set textbox to Gist, if Gist ID is specified
+        if(getQueryParams("gistid") !== undefined)
+        {
+            $.ajax({
+              url: 'https://api.github.com/gists/' + gistid,
+              type: 'GET',
+              dataType: 'jsonp'
+            }).success( function(gistdata) {
+                var names = Object.keys(gistdata.data.files);
+                var content = gistdata.data.files[names[0]].content;
+                var lang = gistdata.data.files[names[0]].language;
+                document.getElementById("sourcecode").value = content;
+                document.getElementById("lang").value = lang;
+                console.log("Gist " + gistid + " loaded successfully.");
+            }).error( function(e) {
+              console.log("There was an error loading Gist " + gistid);
+            });
+        }
+        return "Done getting parameters for code.";
     }
-    // Set Smart Lists
-    if(lists === "true")
-    {
-        $("#smartlists").attr("checked", true);
-    }
-    else if(lists === "false")
-    {
-        $("#smartlists").attr("checked", false);
-    }
-    else
-    {
-        $("#gfm").attr("checked", true);
-    }
-    
-    // Set Sanitize?
-    if(san === "true")
-    {
-        $("#sanitize").attr("checked", true);
-    }
-    else
-    {
-        $("#sanitize").attr("checked", false);
-    }
-    
-    // Set Pedantic Markdown
-    if(pedant === "true")
-    {
-        $("#pedantic").attr("checked", true);
-    }
-    else
-    {
-        $("#pedantic").attr("checked", false);
-    }
-    
-    // Set Smartypants
-    if(sp === "true")
-    {
-        $("#smartypants").attr("checked", true);
-    }
-    else
-    {
-        $("#smartypants").attr("checked", false);
-    }
-    
-    // Set Textile
-    if(txt === "true")
-    {
-        $("#txt").attr("checked", true);
-        mddisable();
-    }
-    else
-    {
-        $("#txt").attr("checked", false);
-    }
-    
-    // Set Font Size
-    if(fs === null || fs === "" || fs === undefined)
-    {
-        document.getElementById("font-size").value = "12";
-    }
-    else
-    {
-        document.getElementById("font-size").value = fs;
-    }
-
-    // Set Font Family
-    switch(ff) {
-        case "lato":
-          document.getElementById('font-family').selectedIndex = 0;
-          break;
-        case "gloria":
-          document.getElementById('font-family').selectedIndex = 1;
-          break;
-        case "opensans":
-          document.getElementById('font-family').selectedIndex = 2;
-          break;
-        case "merri":
-          document.getElementById('font-family').selectedIndex = 3;
-          break;
-        case "incons":
-          document.getElementById('font-family').selectedIndex = 4;
-          break;
-        default:
-          document.getElementById('font-family').selectedIndex = 3;
-          break;
-    }
-    return "Done getting parameters.";
 }
 function generateurl() {
   var font_size = document.getElementById('font-size').value;
@@ -344,31 +394,39 @@ function generateurl() {
   var smartypants = document.getElementById("smartypants").checked.toString();
   var smartlists = document.getElementById("smartlists").checked.toString();
   var txt = document.getElementById('txt').checked.toString();
+  var code = document.getElementById('code').checked.toString();
   // URL friendly!
   var val = encodeURIComponent(document.getElementById('url-text').value);
   var gist = encodeURIComponent(document.getElementById("gistid").value);
   
-  var ff;
-  switch(font_family)
+  if(code === 'false')
   {
-      case 0:
-        ff = "lato";
-        break;
-      case 1:
-        ff = "gloria";
-        break;
-      case 2:
-        ff = "opensans";
-        break;
-      case 3:
-        ff = "merri";
-        break;
-      case 4:
-        ff = "incons";
-        break;
+      var ff;
+      switch(font_family)
+      {
+          case 0:
+            ff = "lato";
+            break;
+          case 1:
+            ff = "gloria";
+            break;
+          case 2:
+            ff = "opensans";
+            break;
+          case 3:
+            ff = "merri";
+            break;
+          case 4:
+            ff = "incons";
+            break;
+      }
+      
+      var link = "http://ethanarterberry.com/Sexydown?gfm=" + gfm + "&sl=" + smartlists + "&san=" + sanitize + "&ped=" + pedantic + "&sp=" + smartypants + "&txt=" + txt + "&fs=" + font_size + "&ff=" + ff + "&val=" + val + "&gistid=" + gist;
   }
-  
-  var link = "http://ethanarterberry.com/Sexydown?gfm=" + gfm + "&sl=" + smartlists + "&san=" + sanitize + "&ped=" + pedantic + "&sp=" + smartypants + "&txt=" + txt + "&fs=" + font_size + "&ff=" + ff + "&val=" + val + "&gistid=" + gist;
+  else
+  {
+      var link = "http://ethanarterberry.com/Sexydown?code=" + code + "&val" + val + "&gistid" + gist;
+  }
   document.getElementById("link").innerHTML = link;
-  $("#link").attr("href", link);
+  $("#link").attr("href", link);   
 }
