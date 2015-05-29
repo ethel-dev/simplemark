@@ -425,7 +425,7 @@ function generateurl() {
   }
   else
   {
-      var link = "http://ethanarterberry.com/Sexydown?code=" + code + "&val" + val + "&gistid" + gist;
+      var link = "http://ethanarterberry.com/Sexydown?code=" + code + "&val=" + val + "&gistid=" + gist;
   }
   document.getElementById("link").innerHTML = link;
   $("#link").attr("href", link);   
