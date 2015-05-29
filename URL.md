@@ -134,7 +134,7 @@ Example:
 ```javascript
 "http://ethanarterberry.com/Sexydown/?code=true" // Turns code printing on
 "http://ethanarterberry.com/Sexydown/?gistid=deb61e0f76daf1ceb6e3&code=true" // Turns code printing on, and sets textbox to https://gist.github.com/sargeant45/deb61e0f76daf1ceb6e3
-"http://ethanarterberry.com/Sexydown/?val=val=function%20javascript()%20%7B%0A%20%20%20%20console.log(%22Hello%20world.%22)%3B%0A%7D&code=true" // Turns code printing on, and sets textbox to a Hello World program.
+"http://ethanarterberry.com/Sexydown/?val=function%20javascript()%20%7B%0A%20%20%20%20console.log(%22Hello%20world.%22)%3B%0A%7D&code=true" // Turns code printing on, and sets textbox to a Hello World program.
 ```
 
 Default: `false`
