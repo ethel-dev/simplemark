@@ -223,7 +223,7 @@ function loadparams() {
     var gistid = decodeURIComponent(getQueryParams("gistid")); // Gist ID
     var code = getQueryParams("code"); // Code
     // Set textbox to specified value
-    if(code !== "true")
+    if(code !== "true" || code === undefined)
     {
         if(getQueryParams("val") === undefined)
         {
