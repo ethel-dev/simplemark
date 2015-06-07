@@ -1,6 +1,6 @@
 /*
 <main.js>
-Sexydown JavaScript
+Sexydown's JavaScript
 written in 2015 by Ethan Arterberry
 */
 function sexydown() {
@@ -174,6 +174,28 @@ function papercode() {
   var code = document.getElementById("sourcecode").value;
   var lang = document.getElementById("lang").value;
   var output = document.getElementById("codeoutput");
+  var style = document.getElementById("theme").selectedIndex;
+  
+  switch(style)
+  {
+    case 0:
+      $('.github, .xcode, .vs').remove();
+      break;
+    case 1:
+      $('.xcode, .vs, .googlecode').remove();
+      break;
+    case 2:
+      $('.github, .vs, .googlecode').remove();
+      break;
+    case 3:
+      $('.github, .xcode, .googlecode').remove();
+      break;
+    case 4:
+      $('.github, .xcode, .googlecode, .vs').remove();
+      var newelement = "<link href='" + $("#customlink").val() + "' rel='stylesheet'>";
+      $("head").append(newelement);
+      break;
+  }
   
   $("#all").hide();
   $("#codepre").collapse("show");

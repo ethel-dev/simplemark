@@ -32,7 +32,11 @@
         <!-- Custom CSS. -->
         <link href="css/custom.css" rel="stylesheet">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/googlecode.min.css">
+        
+        <link class="googlecode" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/googlecode.min.css">
+        <link class="github" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/github.min.css">
+        <link class="xcode" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/xcode.min.css">
+        <link class="vs" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/vs.min.css">
         
         <!-- Custom fonts. -->
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Gloria+Hallelujah|Open+Sans:400italic,700italic,700,400|Merriweather:400,400italic,700,700italic|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -124,12 +128,17 @@
                           <br>
                           <textarea class="code-input" placeholder="Source code to print." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="sourcecode"></textarea>
                           <br>
-                          <select id="theme">
+                          <select id="theme" title="Code theme." onchange="$('#custom').collapse(4===this.selectedIndex?'show':'hide');">
                             <option selected="selected" id="Google-Code">Google Code</option>
                             <option id="GitHub">GitHub</option>
                             <option id="XCode">XCode</option>
                             <option id="Visual-Studio">Visual Studio</option>
+                            <option id="Other" title="highlight.js CSS file from a CDN">Other</option>
                           </select>
+                          <div id="custom" class="collapse">
+                            <label for="customlink">Custom theme: <a href="https://cdnjs.com/libraries/highlight.js">(options here)</a>&nbsp;</label><input placeholder="link to hljs stylesheet" type="text" id="customlink" class="input inconsolata" onblur="setbg('white')" onfocus="setbg('#e5fff3');" style="width: 15%;">
+                          </div>
+                          <br>
                           <button class="btn btn btn-success" type="button" title="Execute the New Sexy Order." onclick="papercode();">Make it sexy!</button>
                         </div>
                     </div>
@@ -143,6 +152,7 @@
             document.getElementById("ugly").style.background = color;
             document.getElementById("sourcecode").style.background = color;
             document.getElementById("lang").style.background = color;
+            document.getElementById("customlink").style.background = color;
         }
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
