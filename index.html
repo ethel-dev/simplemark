@@ -28,6 +28,7 @@
         <script src="https://cdn.rawgit.com/mattboldt/typed.js/master/js/typed.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
         <script src="https://cdn.rawgit.com/michael/github/master/github.js"></script>
+        <script src="js/filereader.js"></script>
         
         <!-- Custom CSS. -->
         <link href="css/custom.css" rel="stylesheet">
@@ -126,7 +127,10 @@
                           <label for="lang"><a href="http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html" title="List of languages supported.">Language name:</a>&nbsp;</label><input class="input inconsolata" id="lang" type="text" placeholder="Default is automatic." onblur="setbg('white')" onfocus="setbg('#e5fff3');">
                           <br>
                           <br>
-                          <textarea class="code-input" placeholder="Source code to print." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="sourcecode"></textarea>
+                          <textarea class="code-input" placeholder="Source code to print." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="sourcecode" onkeyup='var upload=document.getElementById("sourcecode");""!==upload.value?($("#fileupload").val(""),$("#fileupload").attr("disabled","disabled")):$("#fileupload").removeAttr("disabled");' onkeydown='var upload=document.getElementById("sourcecode");void 0!==upload.value?($("#fileupload").val(""),$("#fileupload").attr("disabled","disabled")):$("#fileupload").removeAttr("disabled");'></textarea>
+                          <label for="fileupload">Upload your source code: &nbsp;&nbsp;</label><input onchange='var upload=document.getElementById("fileupload");""!==upload.value?($("#sourcecode").val(""),$("#sourcecode").attr("disabled","disabled")):$("#sourcecode").removeAttr("disabled");' type="file" id="fileupload">
+                          <br>
+                          <label for="theme">Choose a <span class="inconsolata">highlight.js</span> theme:</label>
                           <br>
                           <select id="theme" title="Code theme." onchange="$('#custom').collapse(4===this.selectedIndex?'show':'hide');">
                             <option selected="selected" id="Google-Code">Google Code</option>
@@ -135,8 +139,11 @@
                             <option id="Visual-Studio">Visual Studio</option>
                             <option id="Other" title="highlight.js CSS file from a CDN">Other</option>
                           </select>
+                          <br>
                           <div id="custom" class="collapse">
-                            <label for="customlink">Custom theme: <a href="https://cdnjs.com/libraries/highlight.js">(options here)</a>&nbsp;</label><input placeholder="link to hljs stylesheet" type="text" id="customlink" class="input inconsolata" onblur="setbg('white')" onfocus="setbg('#e5fff3');" style="width: 15%;">
+                            <label for="customlink">Custom theme: <a href="https://cdnjs.com/libraries/highlight.js">(options here)</a>&nbsp;&nbsp;</label>
+                            <br>
+                            <input placeholder="link to hljs stylesheet" type="text" id="customlink" class="input inconsolata" onblur="setbg('white')" onfocus="setbg('#e5fff3');" style="width: 15%;">
                           </div>
                           <br>
                           <button class="btn btn btn-success" type="button" title="Execute the New Sexy Order." onclick="papercode();">Make it sexy!</button>
