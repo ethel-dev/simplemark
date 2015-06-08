@@ -103,11 +103,13 @@ function codeurl() {
       $("#md-options :input").attr("checked", false);
       $("#other-options :input").attr("disabled", true);
       $("#other-options :input").attr("checked", false);
+      $("#codeoptions").collapse("show");
     }
     else
     {
       $("#md-options :input").attr("disabled", false);
       $("#other-options :input").attr("disabled", false);
+      $("#codeoptions").collapse("hide");
     }
 }
 function windowcontroller(what) {
@@ -280,6 +282,9 @@ function loadparams() {
     var val = decodeURIComponent(getQueryParams("val")); // Text
     var gistid = decodeURIComponent(getQueryParams("gistid")); // Gist ID
     var code = getQueryParams("code"); // Code
+    var theme = getQueryParams("theme"); // Code Theme
+    var ctheme = getQueryParams("ctheme"); // Custom theme URL
+    
     // Set textbox to specified value
     if(code !== "true" || code === undefined)
     {
@@ -408,6 +413,7 @@ function loadparams() {
               document.getElementById('font-family').selectedIndex = 3;
               break;
         }
+      
         return "Done getting parameters.";   
     }
     else
@@ -422,6 +428,11 @@ function loadparams() {
             document.getElementById("sourcecode").value = val;
         }
         
+        // Custom theme URL params
+        document.getElementById("theme").selectedIndex = theme;
+        $("#custom").collapse("show");
+        document.getElementById("customlink").value = ctheme;
+      
         // Set textbox to Gist, if Gist ID is specified
         if(getQueryParams("gistid") !== undefined)
         {
@@ -457,6 +468,10 @@ function generateurl() {
   var val = encodeURIComponent(document.getElementById('url-text').value);
   var gist = encodeURIComponent(document.getElementById("gistid").value);
   
+  // Code options
+  var theme = document.getElementById("theme").selectedIndex;
+  var customlink = encodeURIComponent(document.getElementById("customlink").value);
+  
   if(code === 'false')
   {
       var ff;
@@ -483,7 +498,14 @@ function generateurl() {
   }
   else
   {
-      var link = "http://ethanarterberry.com/Sexydown?code=" + code + "&val=" + val + "&gistid=" + gist;
+    if(customlink === "")
+    {
+      var link = "http://ethanarterberry.com/Sexydown?code=" + code + "&val=" + val + "&gistid=" + gist + "&theme=" + theme; 
+    }
+    else
+    {
+      var link = "http://ethanarterberry.com/Sexydown?code=" + code + "&val=" + val + "&gistid=" + gist + "&theme=4&ctheme=" + customlink;
+    }
   }
   document.getElementById("link").innerHTML = link;
   $("#link").attr("href", link);   

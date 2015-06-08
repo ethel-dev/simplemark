@@ -70,6 +70,24 @@
                         <br>
                       	<input type="checkbox" id="code" onchange="codeurl()">&nbsp;&nbsp;<span>Code printing?</span>
                         <br>
+                        <div id="codeoptions" class="collapse"> 
+                          <label for="theme">Choose a <span class="inconsolata">highlight.js</span> theme:</label>
+                          <br>
+                          <select id="theme" title="Code theme." onchange="$('#custom').collapse(4===this.selectedIndex?'show':'hide');">
+                            <option selected="selected" id="Google-Code">Google Code</option>
+                            <option id="GitHub">GitHub</option>
+                            <option id="XCode">XCode</option>
+                            <option id="Visual-Studio">Visual Studio</option>
+                            <option id="Other" title="highlight.js CSS file from a CDN">Other</option>
+                          </select>
+                          <br>
+                          <div id="custom" class="collapse">
+                            <label for="customlink">Custom theme: <a href="https://cdnjs.com/libraries/highlight.js">(options here)</a>&nbsp;&nbsp;</label>
+                            <br>
+                            <input placeholder="link to hljs stylesheet" type="text" id="customlink" class="input inconsolata" onblur="setbg('white')" onfocus="setbg('#e5fff3');" style="width: 15%;">
+                          </div>
+                        </div>
+                        <br>
                         <textarea class="markdown-input" id="url-text" onblur="setbg('white')" onfocus="setbg('#e5fff3');" placeholder="Put Markdown/Textile here. It will be welded into the URL as default text."></textarea>
                         <br>
                         <label for="gistid">Gist ID:&nbsp;</label><input class="input" type="text" title="ID of a GitHub Gist. [NOTE: Default text will be overridden.]" placeholder="ID of a GitHub Gist. [NOTE: Default text will be overridden.]" onblur="setbg('white')" onfocus="setbg('#e5fff3');" style="width:50%;" id="gistid">
