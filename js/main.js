@@ -29,23 +29,23 @@ function sexydown() {
     switch (font_family) {
         case 0:
             // Lato
-            $("#main").addClass("lato");
+            $("#cont").addClass("lato");
             break;
         case 1:
             // Gloria
-            $("#main").addClass("gloria");
+            $("#cont").addClass("gloria");
             break;
         case 2:
             // Open Sans
-            $("#main").addClass("opensans");
+            $("#cont").addClass("opensans");
             break;
         case 3:
             // Merriweather
-            $("#main").addClass("merriweather");
+            $("#cont").addClass("merriweather");
             break;
         case 4:
             // Inconsolata
-            $("#main").addClass("inconsolata");
+            $("#cont").addClass("inconsolata");
             break;
     }
 
