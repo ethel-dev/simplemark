@@ -138,3 +138,27 @@ Example:
 ```
 
 Default: `false`
+
+## `theme`
+Sets the `highlight.js` theme for code printing.
+
+Type: Integer (selectedIndex)
+
+Example:
+```javascript
+"http://ethanarterberry.com/Sexydown/?code=true&theme=1" // GitHub theme
+```
+
+Default: `0`
+
+## `ctheme`
+Sets the URL for a custom `highlight.js` theme.
+
+Type: String (must be escaped, so you should probably use the [URL generator](http://ethanarterberry.com/Sexydown/url.html))
+
+Example:
+```javascript
+"http://ethanarterberry.com/Sexydown/?code=true&theme=4&ctheme=https%3A%2F%2Fcdnjs.cloudflare.com%2Fajax%2Flibs%2Fhighlight.js%2F8.6%2Fstyles%2Fascetic.min.css" // Sets theme to Ascetic
+```
+
+Default: `undefined`
