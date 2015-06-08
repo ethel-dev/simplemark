@@ -68,7 +68,7 @@
                         <p><b>URL Generator:</b> Create a custom URL with options built in for speed.</p>
                         <hr>
                         <br>
-                      	<input type="checkbox" id="code" onchange="codeurl()">&nbsp;&nbsp;<span>Code printing?</span>
+                      	<input type="checkbox" id="code" onchange='var txt=document.getElementById("code").checked;txt===!0?($("#md-options :input, #other-options :input").attr("disabled",!0),$("#md-options :input, #other-options :input").attr("checked",!1),$("#codeoptions").collapse("show")):($("#md-options :input, #other-options :input").attr("disabled",!1),$("#codeoptions").collapse("hide"));'>&nbsp;&nbsp;<span>Code printing?</span>
                         <br>
                         <div id="codeoptions" class="collapse"> 
                           <label for="theme">Choose a <span class="inconsolata">highlight.js</span> theme:</label>

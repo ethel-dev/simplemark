@@ -83,35 +83,6 @@ function sexydown() {
       window.setTimeout(function(){window.print();}, 1000);
     }
 }
-function mddisable() {
-    var txt = document.getElementById('txt').checked;
-    if(txt === true)
-    {
-      $("#md-options :input").attr("disabled", true);
-      $("#md-options :input").attr("checked", false);
-    }
-    else
-    {
-      $("#md-options :input").attr("disabled", false);
-    }
-}
-function codeurl() {
-    var txt = document.getElementById('code').checked;
-    if(txt === true)
-    {
-      $("#md-options :input").attr("disabled", true);
-      $("#md-options :input").attr("checked", false);
-      $("#other-options :input").attr("disabled", true);
-      $("#other-options :input").attr("checked", false);
-      $("#codeoptions").collapse("show");
-    }
-    else
-    {
-      $("#md-options :input").attr("disabled", false);
-      $("#other-options :input").attr("disabled", false);
-      $("#codeoptions").collapse("hide");
-    }
-}
 function windowcontroller(what) {
     switch(what) {
         case "lml":
@@ -124,8 +95,14 @@ function windowcontroller(what) {
             break;
     }
 }
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex ;
+function load() {
+  loadparams();
+  Mousetrap.bind('s e x y', function() {sexydown();});
+  Mousetrap.bind('up up down down left right left right b a enter', function() {
+    doShake();
+  });
+  var langs = ["Markdown.", "Textile.", "C#.", "JavaScript.", "Perl.", "Java.", "Python.", "Ruby.", "Rust.", "R.", "PHP.", "HTML.", "CSS.", "Bash.", "CoffeeScript.", "SQL.", "Objective-C.", "C++.", "Apache.", "HTTP.", "JSON.", "FORTRAN.", "Processing.", "Brainf**k.", "Smalltalk.", "Cloqure.", "Dart.", "Go.", "VB.NET.", "Swift.", "Matlab.", "Haml.", "DOS .bat.", "Scala.", "Haskell.", "Lua.", "TeX.", "F#.", "Django.", "Lisp.", "AutoHotkey.", "LESS.", "SASS."];
+  var currentIndex = langs.length, temporaryValue, randomIndex ;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
@@ -136,20 +113,9 @@ function shuffle(array) {
 
     // And swap it with the current element.
     temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+    langs[currentIndex] = array[randomIndex];
+    langs[randomIndex] = temporaryValue;
   }
-
-  return array;
-}
-function load() {
-  loadparams();
-  Mousetrap.bind('s e x y', function() {sexydown();});
-  Mousetrap.bind('up up down down left right left right b a enter', function() {
-    doShake();
-  });
-  var langs = ["Markdown.", "Textile.", "C#.", "JavaScript.", "Perl.", "Java.", "Python.", "Ruby.", "Rust.", "R.", "PHP.", "HTML.", "CSS.", "Bash.", "CoffeeScript.", "SQL.", "Objective-C.", "C++.", "Apache.", "HTTP.", "JSON.", "FORTRAN.", "Processing.", "Brainf**k.", "Smalltalk.", "Cloqure.", "Dart.", "Go.", "VB.NET.", "Swift.", "Matlab.", "Haml.", "DOS .bat.", "Scala.", "Haskell.", "Lua.", "TeX.", "F#.", "Django.", "Lisp.", "AutoHotkey.", "LESS.", "SASS."];
-  shuffle(langs);
   $("#titlespan").typed({
     strings: langs,
     // typing speed

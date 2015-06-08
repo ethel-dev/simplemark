@@ -106,7 +106,7 @@
                           <br>
                           <div id="other-options">
                             <p><u><b>Other Options:</b></u></p>
-                            <input type="checkbox" id="txt" onchange="mddisable()" title="Textile is an alternative markup language to Markdown, which means the syntax is very different.">&nbsp;&nbsp;<span>Enable Textile?</span>
+                            <input type="checkbox" id="txt" onchange='var txt=document.getElementById("txt").checked;txt===!0?($("#md-options :input").attr("disabled",!0),$("#md-options :input").attr("checked",!1)):$("#md-options :input").attr("disabled",!1);' title="Textile is an alternative markup language to Markdown, which means the syntax is very different.">&nbsp;&nbsp;<span>Enable Textile?</span>
                             <br>
                             <span>Font size:</span>&nbsp;&nbsp;<input type="number" value="12" id="font-size" class="num" min="1">&nbsp;<select id="font-measure"><option name="pt">pt</option><option name="px">px</option><option name="rem">rem</option></select>
                             <br>
