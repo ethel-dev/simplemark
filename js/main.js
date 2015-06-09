@@ -155,7 +155,7 @@ function load() {
 
         // And swap it with the current element.
         temporaryValue = langs[currentIndex];
-        langs[currentIndex] = array[randomIndex];
+        langs[currentIndex] = langs[randomIndex];
         langs[randomIndex] = temporaryValue;
     }
     $("#titlespan").typed({
