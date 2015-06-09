@@ -29,7 +29,7 @@ function sexydown() {
                 return code;
             };
             // Call the FileReader, and have it read the uploaded file.
-            var u = reader.readAsText(input.files[0]);
+            u = reader.readAsText(input.files[0]);
         } else {
             alert('The File APIs are not fully supported by your browser.');
         }
