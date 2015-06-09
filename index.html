@@ -87,11 +87,11 @@
                             <strong>Tip:</strong> type <code>S-E-X-Y</code> to make it sexy, fast!
                           </div>
                           <p>Put Markdown code here:</p>
-                          <textarea class="markdown-input" placeholder="Markdown code." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="ugly" onkeyup="disabler('md-gist', 'md-fileupload');" onkeydown="disabler('md-gist', 'md-fileupload');"></textarea>
+                          <textarea class="markdown-input" placeholder="Markdown code." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="ugly" onkeyup="disabler('md-gist', 'md-fileupload', 'ugly');" onkeydown="disabler('md-gist', 'md-fileupload');"></textarea>
                           <br>
-                          <label for="md-fileupload">Upload your text document: &nbsp;&nbsp;</label><input onchange='disabler("md-fileupload", "ugly");' type="file" id="md-fileupload">
+                          <label for="md-fileupload">Upload your text document: &nbsp;&nbsp;</label><input onchange='disabler("md-gist", "ugly", "md-fileupload");' type="file" id="md-fileupload">
                           <br>
-                          <label for="md-gist">Gist ID: &nbsp;&nbsp;</label><input onkeydown="disabler('md-fileupload', 'ugly');" type="text" id="md-gist">
+                          <label for="md-gist">Gist ID: &nbsp;&nbsp;</label><input onkeydown="disabler('md-fileupload', 'ugly', 'md-gist');" type="text" id="md-gist">
                           <div id="md-options">
                             <p><u><b>Markdown Options:</b></u></p>
                             <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
