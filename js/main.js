@@ -1,7 +1,8 @@
 /*
 <main.js>
 Sexydown's JavaScript
-written in 2015 by Ethan Arterberry
+written in 2015 by Ethan Arterberry 
+public domain under the Unlicense
 */
 function sexydown() {
     $("#modedrop").fadeOut();
@@ -12,6 +13,43 @@ function sexydown() {
     var font_ms = document.getElementById('font-measure').selectedIndex;
     var font_family = document.getElementById('font-family').selectedIndex;
     var measurement;
+    
+    if(document.getElementById("md-gist").getAttribute("disabled") === "disabled" && document.getElementById("ugly").getAttribute("disabled") === "disabled") {
+        // Check for FileReader support.
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+            // Classify input.
+            var input = document.getElementById('md-fileupload');
+
+            // Declare FileReader instance
+            var reader = new FileReader();
+            reader.onload = function() {
+                console.log("Opened file.\nContents:\n" + reader.result);
+                // Define 'code' as the contents of the file.
+                var code = reader.result;
+                return code;
+            };
+            // Call the FileReader, and have it read the uploaded file.
+            var u = reader.readAsText(input.files[0]);
+        } else {
+            alert('The File APIs are not fully supported by your browser.');
+        }
+    }
+    else if(document.getElementById("md-fileupload").getAttribute("disabled") === "disabled" && document.getElementById("ugly").getAttribute("disabled") === "disabled") {
+        var gistid = document.getElementById("md-gist").value;
+        $.ajax({
+                url: 'https://api.github.com/gists/' + gistid,
+                type: 'GET',
+                dataType: 'jsonp'
+            }).success(function(gistdata) {
+                var names = Object.keys(gistdata.data.files);
+                var content = gistdata.data.files[names[0]].content;
+                document.getElementById("ugly").value = content;
+                console.log("Gist " + gistid + " loaded successfully.");
+            }).error(function(e) {
+                console.log("There was an error loading Gist " + gistid);
+        });
+        u = document.getElementById("ugly").value;
+    }
 
     switch (font_ms) {
         case 0:
