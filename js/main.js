@@ -258,6 +258,7 @@ function papercode() {
 
 function arrayQuery() {
     // 'borrowed' from http://stackoverflow.com/questions/4297765/make-a-javascript-array-from-url
+    var url = window.location.href;
     var request = {};
     var pairs = url.substring(url.indexOf('?') + 1).split('&');
     for (var i = 0; i < pairs.length; i++) {
