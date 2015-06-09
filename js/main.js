@@ -286,14 +286,14 @@ function loadparams() {
 
     // Set textbox to specified value
     if (code !== "true" || code === undefined) {
-        if (getQueryParams("val") === undefined) {
+        if (query["val"] === undefined) {
             document.getElementById("ugly").value = "";
         } else {
             document.getElementById("ugly").value = val;
         }
 
         // Set textbox to Gist, if Gist ID is specified
-        if (getQueryParams("gistid") !== undefined) {
+        if (query["gistid"] !== undefined) {
             $.ajax({
                 url: 'https://api.github.com/gists/' + gistid,
                 type: 'GET',
@@ -386,7 +386,7 @@ function loadparams() {
         return "Done getting parameters.";
     } else {
         windowcontroller("code");
-        if (getQueryParams("val") === undefined) {
+        if (query["val"] === undefined) {
             document.getElementById("sourcecode").value = "";
         } else {
             document.getElementById("sourcecode").value = val;
@@ -403,7 +403,7 @@ function loadparams() {
         }
 
         // Set textbox to Gist, if Gist ID is specified
-        if (getQueryParams("gistid") !== undefined) {
+        if (query["gistid") !== undefined) {
             $.ajax({
                 url: 'https://api.github.com/gists/' + gistid,
                 type: 'GET',
