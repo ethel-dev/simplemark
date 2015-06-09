@@ -75,8 +75,7 @@
                     </div>
                 </nav>
             </div>
-            
-                <div class="container-fluid" id="cont" name="cont">
+            <div class="container-fluid" id="cont" name="cont">
                     <div class="main" id="main">
                         <h1 id="title"><b>Sexydown 3:</b> A sexy way to print <span id="titlespan">Markdown.</span></h1>
                         <p id="bodytext"><p><strong>Sexydown</strong> is a useful, completely public domain, free website that prints code beautifully minimalistic on paper. It can compile Markdown and Textile markup to HTML and print it with a variety of options, and it can print 118 languages in beautifully syntax-highlighted glory on paper. Better yet, you can create a custom URL using the <a href="url.html">URL generator</a> that will check the options for you. Sexydown 3 has many new features that make it a fully-featured printing utility belt that you'll keep in your bookmarks for all eternity. If you're a nerd, you will be pleased to hear that Sexydown 3 is public domain on <a href="https://github.com/sargeant45/Sexydown">GitHub.</a></p>
@@ -88,8 +87,11 @@
                             <strong>Tip:</strong> type <code>S-E-X-Y</code> to make it sexy, fast!
                           </div>
                           <p>Put Markdown code here:</p>
-                          <textarea class="markdown-input" placeholder="Markdown code." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="ugly"></textarea>
+                          <textarea class="markdown-input" placeholder="Markdown code." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="ugly" onkeydown='var disable1=document.getElementById("md-fileupload"),disable2=document.getElementById("md-gist");void 0!==this.value?($(disable1,disable2).attr("disabled","disabled"),$(disable1,disable2).val("")):$(disable1,disable2).removeAttr("disabled");' onkeyup='var disable1=document.getElementById("md-fileupload"),disable2=document.getElementById("ugly");void 0!==this.value?($(disable1,disable2).attr("disabled","disabled"),$(disable1,disable2).val("")):$(disable1,disable2).removeAttr("disabled");'></textarea>
                           <br>
+                          <label for="md-fileupload">Upload your text document: &nbsp;&nbsp;</label><input onchange='var disable1=document.getElementById("md-gist"),disable2=document.getElementById("ugly");void 0!==this.value?($(disable1,disable2).attr("disabled","disabled"),$(disable1,disable2).val("")):$(disable1,disable2).removeAttr("disabled");' type="file" id="md-fileupload">
+                          <br>
+                          <label for="md-gist">Gist ID: &nbsp;&nbsp;</label><input onkeydown='var disable1=document.getElementById("md-fileupload"),disable2=document.getElementById("ugly");void 0!==this.value?($(disable1,disable2).attr("disabled","disabled"),$(disable1,disable2).val("")):$(disable1,disable2).removeAttr("disabled");' onkeyup='var disable1=document.getElementById("md-fileupload"),disable2=document.getElementById("ugly");void 0!==this.value?($(disable1,disable2).attr("disabled","disabled"),$(disable1,disable2).val("")):$(disable1,disable2).removeAttr("disabled");' type="text" id="md-gist">
                           <div id="md-options">
                             <p><u><b>Markdown Options:</b></u></p>
                             <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
