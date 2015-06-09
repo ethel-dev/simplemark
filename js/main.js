@@ -116,7 +116,7 @@ function load() {
         currentIndex -= 1;
 
         // And swap it with the current element.
-        temporaryValue = array[currentIndex];
+        temporaryValue = langs[currentIndex];
         langs[currentIndex] = array[randomIndex];
         langs[randomIndex] = temporaryValue;
     }
