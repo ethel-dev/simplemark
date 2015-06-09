@@ -440,9 +440,12 @@ function disabler(id1, id2, s) {
     var sender = document.getElementById(s);
     
     if(sender.value !== "") {
-      $(disable1, disable2).attr("disabled", "disabled");
-      $(disable1, disable2).val("");
+      $(disable1).attr("disabled", "disabled");
+      $(disable2).attr("disabled", "disabled");
+      $(disable1).val("");
+      $(disable2).val("");
     } else {
-      $(disable1, disable2).removeAttr("disabled");
+      $(disable1).removeAttr("disabled");
+      $(disable2).removeAttr("disabled");
     }
 }
