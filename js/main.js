@@ -403,7 +403,7 @@ function loadparams() {
         }
 
         // Set textbox to Gist, if Gist ID is specified
-        if (query["gistid") !== undefined) {
+        if (query["gistid"] !== undefined) {
             $.ajax({
                 url: 'https://api.github.com/gists/' + gistid,
                 type: 'GET',
