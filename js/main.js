@@ -433,3 +433,15 @@ function generateurl() {
     document.getElementById("link").innerHTML = link;
     $("#link").attr("href", link);
 }
+
+function disabler(id1, id2) {
+    var disable1 = document.getElementById(id1);
+    var disable2 = document.getElementById(id2);
+     
+    if(this.value !== "") {
+      $(disable1, disable2).attr("disabled", "disabled");
+      $(disable1, disable2).val("");
+    } else {
+      $(disable1, disable2).removeAttr("disabled");
+    }
+}
