@@ -434,11 +434,12 @@ function generateurl() {
     $("#link").attr("href", link);
 }
 
-function disabler(id1, id2) {
+function disabler(id1, id2, s) {
     var disable1 = document.getElementById(id1);
     var disable2 = document.getElementById(id2);
-     
-    if(this.value !== "") {
+    var sender = document.getElementById(s);
+    
+    if(sender.value !== "") {
       $(disable1, disable2).attr("disabled", "disabled");
       $(disable1, disable2).val("");
     } else {
