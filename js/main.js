@@ -43,12 +43,12 @@ function sexydown() {
             }).success(function(gistdata) {
                 var names = Object.keys(gistdata.data.files);
                 var content = gistdata.data.files[names[0]].content;
-                document.getElementById("ugly").value = content;
+                document.getElementById("justavar").innerText = content;
                 console.log("Gist " + gistid + " loaded successfully.");
             }).error(function(e) {
                 console.log("There was an error loading Gist " + gistid);
         });
-        u = document.getElementById("ugly").value;
+        u = document.getElementById("justavar").innerText;
     }
 
     switch (font_ms) {
