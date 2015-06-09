@@ -218,31 +218,32 @@ function papercode() {
     }
 }
 
-function getQueryParams(sParam) {
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) {
-            return sParameterName[1];
-        }
+function arrayQuery() {
+    // 'borrowed' from http://stackoverflow.com/questions/4297765/make-a-javascript-array-from-url
+    var request = {};
+    var pairs = url.substring(url.indexOf('?') + 1).split('&');
+    for (var i = 0; i < pairs.length; i++) {
+     var pair = pairs[i].split('=');
+     request[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
     }
+    return request;
 }
 
 function loadparams() {
-    var gfm = getQueryParams("gfm"); // GitHub Flavored Markdown
-    var lists = getQueryParams("sl"); // Smart Lists
-    var san = getQueryParams("san"); // Sanitize
-    var pedant = getQueryParams("ped"); // Pedantic Markdown
-    var sp = getQueryParams("sp"); // Smartypants
-    var txt = getQueryParams("txt"); // Textile
-    var fs = getQueryParams("fs"); // Font size (pt)
-    var ff = getQueryParams("ff"); // Font family
-    var val = decodeURIComponent(getQueryParams("val")); // Text
-    var gistid = decodeURIComponent(getQueryParams("gistid")); // Gist ID
-    var code = getQueryParams("code"); // Code
-    var theme = getQueryParams("theme"); // Code Theme
-    var ctheme = getQueryParams("ctheme"); // Custom theme URL
+    var query = arrayQuery();
+    var gfm = query["gfm"]; // GitHub Flavored Markdown
+    var lists = query["sl"]; // Smart Lists
+    var san = query["san"]; // Sanitize
+    var pedant = query["ped"]; // Pedantic Markdown
+    var sp = query["sp"]; // Smartypants
+    var txt = query["txt"]; // Textile
+    var fs = query["fs"]; // Font size (pt)
+    var ff = query["ff"]; // Font family
+    var val = decodeURIComponent(query["val"]); // Text
+    var gistid = decodeURIComponent(query["gistid"]); // Gist ID
+    var code = query["code"]; // Code
+    var theme = query["theme"]; // Code Theme
+    var ctheme = decodeURIComponent(query["ctheme"]); // Custom theme URL
 
     // Set textbox to specified value
     if (code !== "true" || code === undefined) {
