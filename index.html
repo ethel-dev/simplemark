@@ -129,8 +129,10 @@
                           <label for="lang"><a href="http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html" title="List of languages supported.">Language name:</a>&nbsp;</label><input class="input inconsolata" id="lang" type="text" placeholder="Default is automatic." onblur="setbg('white')" onfocus="setbg('#e5fff3');">
                           <br>
                           <br>
-                          <textarea class="code-input" placeholder="Source code to print." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="sourcecode" onkeyup='var upload=document.getElementById("sourcecode");""!==upload.value?($("#fileupload").val(""),$("#fileupload").attr("disabled","disabled")):$("#fileupload").removeAttr("disabled");' onkeydown='var upload=document.getElementById("sourcecode");void 0!==upload.value?($("#fileupload").val(""),$("#fileupload").attr("disabled","disabled")):$("#fileupload").removeAttr("disabled");'></textarea>
-                          <label for="fileupload">Upload your source code: &nbsp;&nbsp;</label><input onchange='var upload=document.getElementById("fileupload");""!==upload.value?($("#sourcecode").val(""),$("#sourcecode").attr("disabled","disabled")):$("#sourcecode").removeAttr("disabled");' type="file" id="fileupload">
+                          <textarea class="code-input" placeholder="Source code to print." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="sourcecode" onkeyup="disabler('gist', 'fileupload', 'sourcecode');" onkeydown="disabler('gist', 'fileupload', 'sourcecode');"></textarea>
+                          <label for="fileupload">Upload your source code: &nbsp;&nbsp;</label><input onchange='disabler("gist", "sourcecode", "fileupload");' type="file" id="fileupload">
+                          <br>
+                          <label for="gist">Gist ID: &nbsp;&nbsp;</label><input onkeydown="disabler('fileupload', 'sourcecode', 'gist');" type="text" id="gist">
                           <br>
                           <label for="theme">Choose a <span class="inconsolata">highlight.js</span> theme:</label>
                           <br>
