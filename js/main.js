@@ -6,14 +6,7 @@ public domain under the Unlicense
 */
 function sexydown() {
     $("#modedrop").fadeOut();
-    var u = document.getElementById('ugly').value;
     var s;
-    // Font settings:
-    var font_size = document.getElementById('font-size').value;
-    var font_ms = document.getElementById('font-measure').selectedIndex;
-    var font_family = document.getElementById('font-family').selectedIndex;
-    var measurement;
-    
     if(document.getElementById("md-gist").getAttribute("disabled") === "disabled" && document.getElementById("ugly").getAttribute("disabled") === "disabled") {
         // Check for FileReader support.
         if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -24,103 +17,109 @@ function sexydown() {
             var reader = new FileReader();
             reader.onload = function() {
                 console.log("Opened file.\nContents:\n" + reader.result);
-                // Define 'code' as the contents of the file.
-                var code = reader.result;
-                return code;
+                sexydownPart2(reader.result);
             };
             // Call the FileReader, and have it read the uploaded file.
-            u = reader.readAsText(input.files[0]);
+            reader.readAsText(input.files[0]);
         } else {
             alert('The File APIs are not fully supported by your browser.');
         }
     }
     else if(document.getElementById("md-fileupload").getAttribute("disabled") === "disabled" && document.getElementById("ugly").getAttribute("disabled") === "disabled") {
         var gistid = document.getElementById("md-gist").value;
-        $.ajax({
+        var request = $.ajax({
                 url: 'https://api.github.com/gists/' + gistid,
                 type: 'GET',
                 dataType: 'jsonp'
             }).success(function(gistdata) {
                 var names = Object.keys(gistdata.data.files);
                 var content = gistdata.data.files[names[0]].content;
-                document.getElementById("justavar").innerText = content;
                 console.log("Gist " + gistid + " loaded successfully.");
+                sexydownPart2(content);
             }).error(function(e) {
                 console.log("There was an error loading Gist " + gistid);
         });
-        u = document.getElementById("justavar").innerText;
     }
-
-    switch (font_ms) {
-        case 0:
-            measurement = "pt";
-            break;
-        case 1:
-            measurement = "px";
-            break;
-        case 2:
-            measurement = "rem";
-            break;
-    }
-    font_size = font_size + measurement;
-    $("#main").css("font-size", font_size);
-    switch (font_family) {
-        case 0:
-            // Lato
-            $("#cont").addClass("lato");
-            break;
-        case 1:
-            // Gloria
-            $("#cont").addClass("gloria");
-            break;
-        case 2:
-            // Open Sans
-            $("#cont").addClass("opensans");
-            break;
-        case 3:
-            // Merriweather
-            $("#cont").addClass("merriweather");
-            break;
-        case 4:
-            // Inconsolata
-            $("#cont").addClass("inconsolata");
-            break;
-    }
-
-    // Textile or Markdown?
-    var txt = document.getElementById('txt').checked;
-    if (txt === true) {
-        s = textile(u);
-        document.getElementById("cont").innerHTML = s;
-        window.setTimeout(function() {
-            window.print();
-        }, 1000);
-    } else {
-        var gfm = document.getElementById("gfm").checked;
-        var sanitize = document.getElementById("sanitize").checked;
-        var pedantic = document.getElementById("pedantic").checked;
-        var smartypants = document.getElementById("smartypants").checked;
-        var smartlists = document.getElementById("smartlists").checked;
-        // Use Markdown.
-        marked.setOptions({
-            renderer: new marked.Renderer(),
-            gfm: gfm,
-            tables: gfm,
-            breaks: gfm,
-            pedantic: pedantic,
-            sanitize: sanitize,
-            smartLists: smartlists,
-            smartypants: smartypants
-        });
-
-        s = marked(u);
-        document.getElementById("cont").innerHTML = s;
-        window.setTimeout(function() {
-            window.print();
-        }, 1000);
+    else if(document.getElementById("md-fileupload").getAttribute("disabled") === "disabled" && document.getElementById("md-gist").getAttribute("disabled") === "disabled")
+    {
+        sexydownPart2($("#ugly").val());
     }
 }
+function sexydownPart2(u) {
+      // Font settings:
+      var font_size = document.getElementById('font-size').value;
+      var font_ms = document.getElementById('font-measure').selectedIndex;
+      var font_family = document.getElementById('font-family').selectedIndex;
+      var measurement;
+      switch (font_ms) {
+          case 0:
+              measurement = "pt";
+              break;
+          case 1:
+              measurement = "px";
+              break;
+          case 2:
+              measurement = "rem";
+              break;
+      }
+      font_size = font_size + measurement;
+      $("#main").css("font-size", font_size);
+      switch (font_family) {
+          case 0:
+              // Lato
+              $("#cont").addClass("lato");
+              break;
+          case 1:
+              // Gloria
+              $("#cont").addClass("gloria");
+              break;
+          case 2:
+              // Open Sans
+              $("#cont").addClass("opensans");
+              break;
+          case 3:
+              // Merriweather
+              $("#cont").addClass("merriweather");
+              break;
+          case 4:
+              // Inconsolata
+              $("#cont").addClass("inconsolata");
+              break;
+      }
 
+      // Textile or Markdown?
+      var txt = document.getElementById('txt').checked;
+      if (txt === true) {
+          s = textile(u);
+          document.getElementById("cont").innerHTML = s;
+          window.setTimeout(function() {
+              window.print();
+          }, 1000);
+      } else {
+          var gfm = document.getElementById("gfm").checked;
+          var sanitize = document.getElementById("sanitize").checked;
+          var pedantic = document.getElementById("pedantic").checked;
+          var smartypants = document.getElementById("smartypants").checked;
+          var smartlists = document.getElementById("smartlists").checked;
+          // Use Markdown.
+          marked.setOptions({
+              renderer: new marked.Renderer(),
+              gfm: gfm,
+              tables: gfm,
+              breaks: gfm,
+              pedantic: pedantic,
+              sanitize: sanitize,
+              smartLists: smartlists,
+              smartypants: smartypants
+          });
+
+          s = marked(u);
+          document.getElementById("cont").innerHTML = s;
+          window.setTimeout(function() {
+              window.print();
+          }, 1000);
+      }
+}
 function windowcontroller(what) {
     switch (what) {
         case "lml":
@@ -133,7 +132,6 @@ function windowcontroller(what) {
             break;
     }
 }
-
 function load() {
     loadparams();
     Mousetrap.bind('s e x y', function() {
@@ -255,7 +253,6 @@ function papercode() {
         window.print();
     }
 }
-
 function arrayQuery() {
     // 'borrowed' from http://stackoverflow.com/questions/4297765/make-a-javascript-array-from-url
     var url = window.location.href;
@@ -267,7 +264,6 @@ function arrayQuery() {
     }
     return request;
 }
-
 function loadparams() {
     var query = arrayQuery();
     var gfm = query["gfm"]; // GitHub Flavored Markdown
@@ -422,7 +418,6 @@ function loadparams() {
         return "Done getting parameters for code.";
     }
 }
-
 function generateurl() {
     var font_size = document.getElementById('font-size').value;
     var font_family = document.getElementById('font-family').selectedIndex;
@@ -472,7 +467,6 @@ function generateurl() {
     document.getElementById("link").innerHTML = link;
     $("#link").attr("href", link);
 }
-
 function disabler(id1, id2, s) {
     var disable1 = document.getElementById(id1);
     var disable2 = document.getElementById(id2);
