@@ -87,11 +87,11 @@
                             <strong>Tip:</strong> type <code>S-E-X-Y</code> to make it sexy, fast!
                           </div>
                           <p>Put Markdown code here:</p>
-                          <textarea class="markdown-input" placeholder="Markdown code." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="ugly" onkeyup="disabler('md-gist', 'md-fileupload', 'ugly');" onkeydown="disabler('md-gist', 'md-fileupload', 'ugly');"></textarea>
+                          <textarea class="markdown-input" placeholder="Markdown code." onblur="setbg('white'); disabler('md-fileupload', 'ugly', 'md-gist');" onfocus="setbg('#e5fff3');" id="ugly" onkeyup="disabler('md-gist', 'md-fileupload', 'ugly');" onkeydown="disabler('md-gist', 'md-fileupload', 'ugly');"></textarea>
                           <br>
                           <label for="md-fileupload">Upload your text document: &nbsp;&nbsp;</label><input onchange='disabler("md-gist", "ugly", "md-fileupload");' type="file" id="md-fileupload">
                           <br>
-                          <label for="md-gist">Gist ID: &nbsp;&nbsp;</label><input onkeydown="disabler('md-fileupload', 'ugly', 'md-gist');" type="text" id="md-gist">
+                          <label for="md-gist">Gist ID: &nbsp;&nbsp;</label><input onkeyup="disabler('md-fileupload', 'ugly', 'md-gist');" onkeydown="disabler('md-fileupload', 'ugly', 'md-gist');" onblur="disabler('md-fileupload', 'ugly', 'md-gist');" type="text" id="md-gist">
                           <div id="md-options">
                             <p><u><b>Markdown Options:</b></u></p>
                             <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
@@ -129,10 +129,10 @@
                           <label for="lang"><a href="http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html" title="List of languages supported.">Language name:</a>&nbsp;</label><input class="input inconsolata" id="lang" type="text" placeholder="Default is automatic." onblur="setbg('white')" onfocus="setbg('#e5fff3');">
                           <br>
                           <br>
-                          <textarea class="code-input" placeholder="Source code to print." onblur="setbg('white')" onfocus="setbg('#e5fff3');" id="sourcecode" onkeyup="disabler('gist', 'fileupload', 'sourcecode');" onkeydown="disabler('gist', 'fileupload', 'sourcecode');"></textarea>
+                          <textarea class="code-input" placeholder="Source code to print." onblur="disabler('gist', 'fileupload', 'sourcecode'); setbg('white');" onfocus="setbg('#e5fff3');" id="sourcecode" onkeyup="disabler('gist', 'fileupload', 'sourcecode');" onkeydown="disabler('gist', 'fileupload', 'sourcecode');"></textarea>
                           <label for="fileupload">Upload your source code: &nbsp;&nbsp;</label><input onchange='disabler("gist", "sourcecode", "fileupload");' type="file" id="fileupload">
                           <br>
-                          <label for="gist">Gist ID: &nbsp;&nbsp;</label><input onkeydown="disabler('fileupload', 'sourcecode', 'gist');" type="text" id="gist">
+                          <label for="gist">Gist ID: &nbsp;&nbsp;</label><input onblur="disabler('fileupload', 'sourcecode', 'gist');" onkeydown="disabler('fileupload', 'sourcecode', 'gist');" onkeyup="disabler('fileupload', 'sourcecode', 'gist');" type="text" id="gist">
                           <br>
                           <label for="theme">Choose a <span class="inconsolata">highlight.js</span> theme:</label>
                           <br>
