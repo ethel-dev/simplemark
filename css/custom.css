@@ -1,76 +1,110 @@
-@media print {
-	body {
-	    width: 100%; 
-	    margin: 0px;
-	    float: none;
-	    padding: none;
-	    line-height: 1.4;
-	}
-	#header, #e, .noprint {
-	    display: none;
-	}
-}
+/* 
+I'm so sorry...
+The fact that you are reading this means you will have to excuse my shitty CSS...
+It gets the job done, I guess. I just beautified it for your sake
+- Ethan
+*/
 
+@media print {
+    body {
+        width: 100%;
+        margin: 0px;
+        float: none;
+        padding: none;
+        line-height: 1.4;
+    }
+    #header,
+    #e,
+    .noprint {
+        display: none;
+    }
+}
 body {
     font-family: 'Merriweather', serif;
 }
-.typed-cursor{
+.typed-cursor {
     opacity: 1;
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }
-@keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
-@-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
-@-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 pre {
-  background-color: white;
-  border: none;
-  white-space: pre-wrap;       /* css-3 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word; 
+    background-color: white;
+    border: none;
+    white-space: pre-wrap;
+    /* css-3 */
+    
+    white-space: -moz-pre-wrap;
+    /* Mozilla, since 1999 */
+    
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    
+    word-wrap: break-word;
 }
 .markdown-input {
-  border: 3px solid #cccccc;
-	padding: 5px;
-	font-family: inherit;
-	resize: none;
-  width: 100%;
-  height: 70pt;
+    border: 3px solid #cccccc;
+    padding: 5px;
+    font-family: inherit;
+    resize: none;
+    width: 100%;
+    height: 70pt;
 }
 .code-input {
-	border: 3px solid #cccccc;
-	padding: 5px;
-	font-family: "Inconsolata", monospace;
-  resize: none;
-  width: 100%;
-  height: 100pt;
+    border: 3px solid #cccccc;
+    padding: 5px;
+    font-family: "Inconsolata", monospace;
+    resize: none;
+    width: 100%;
+    height: 100pt;
 }
 .input {
-  font-family: inherit;
-  border: 3px solid #cccccc;
-  width: 100%;
-  padding: 5px;
+    font-family: inherit;
+    border: 3px solid #cccccc;
+    width: 100%;
+    padding: 5px;
 }
 #mdtitle {
-  transition: color 3s;
+    transition: color 3s;
 }
 #e {
-  padding-top: 50px;
+    padding-top: 50px;
 }
 .num {
     width: 40px;
@@ -81,25 +115,22 @@ pre {
     height: 100%;
 }
 #cont {
-	text-align: justify;
+    text-align: justify;
 }
+
 /* Font options. */
 .lato {
     font-family: 'Lato', sans-serif;
 }
-
 .gloria {
     font-family: 'Gloria Hallelujah';
 }
-
 .opensans {
     font-family: 'Open Sans', sans-serif;
 }
-
 .merriweather {
     font-family: 'Merriweather', serif;
 }
-
 .inconsolata {
     font-family: 'Inconsolata';
 }
