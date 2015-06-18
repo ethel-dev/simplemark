@@ -44,6 +44,7 @@ function sexydown() {
 }
 
 function sexydownPart2(u) {
+  // This function was created as a result of shitty JavaScript async. Enjoy!
   // Font settings:
   var font_size = document.getElementById('font-size').value;
   var font_ms = document.getElementById('font-measure').selectedIndex;
