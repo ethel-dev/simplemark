@@ -1,3 +1,12 @@
+// As of Thursday, June 18th, 2015, this code is unused and out of date.
+// Please do not commit to it.
+// Instead, commit to the CoffeeScript files inside /js/coffeescript
+// Compile them to the "compiled" folder, please.
+// If you don't know CoffeeScript, go learn it. Do yourself a favor.
+// Trust me, you don't want to read this jumbled file of code anyway.
+// - Ethan Arterberry, creator of Sexydown
+
+
 /*
 <main.js>
 Sexydown's JavaScript
