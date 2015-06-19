@@ -22,13 +22,14 @@
         <!-- Custom JS. -->
         <script src="js/parsers/marked.min.js"></script>
         <script src="js/parsers/textile.min.js"></script>
-        <script src="js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
         <script src="js/highlight.pack.js"></script>
         <script src="https://cdn.rawgit.com/mattboldt/typed.js/master/js/typed.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-        <script src="https://cdn.rawgit.com/michael/github/master/github.js"></script>
-        <script src="js/filereader.js"></script>
+        
+        <!-- Compiled CoffeeScript -->
+        <script src="js/coffeescript/compiled/parameter.js"></script>
+        <script src="js/coffeescript/compiled/printer.js"></script>
+        <script src="js/coffeescript/compiled/window.js"></script>
         
         <!-- Custom CSS. -->
         <link href="css/custom.css" rel="stylesheet">
@@ -87,7 +88,7 @@
                             <strong>Tip:</strong> type <code>S-E-X-Y</code> to make it sexy, fast!
                           </div>
                           <p>Put Markdown code here:</p>
-                          <textarea class="markdown-input" placeholder="Markdown code." onblur="setbg('white'); disabler('md-fileupload', 'ugly', 'md-gist');" onfocus="setbg('#e5fff3');" id="ugly" onkeyup="disabler('md-gist', 'md-fileupload', 'ugly');" onkeydown="disabler('md-gist', 'md-fileupload', 'ugly');"></textarea>
+                          <textarea class="markdown-input" placeholder="Markdown code." onblur="setbg('white'); disabler('md-fileupload', 'md-gist', 'ugly');" onfocus="setbg('#e5fff3');" id="ugly" onkeyup="disabler('md-gist', 'md-fileupload', 'ugly');" onkeydown="disabler('md-gist', 'md-fileupload', 'ugly');"></textarea>
                           <br>
                           <label for="md-fileupload">Upload your text document: &nbsp;&nbsp;</label><input onchange='disabler("md-gist", "ugly", "md-fileupload");' type="file" id="md-fileupload">
                           <br>
