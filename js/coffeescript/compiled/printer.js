@@ -53,9 +53,9 @@ sexydown = function() {
 
 sexydownPart2 = function(u) {
   var font_family, font_ms, font_size, gfm, measurement, pedantic, s, sanitize, smartlists, smartypants, txt;
-  font_size = $("font-size").val;
-  font_ms = $("font-measure").val;
-  font_family = $("font-family").val;
+  font_size = document.getElementById('font-size').value;
+  font_ms = document.getElementById('font-measure').selectedIndex;
+  font_family = document.getElementById('font-family').selectedIndex;
   switch (font_family) {
     case 0:
       measurement = "pt";
@@ -67,7 +67,7 @@ sexydownPart2 = function(u) {
       measurement = "rem";
   }
   font_size += measurement;
-  $("#cont").css("font_size", "font_size");
+  $("#cont").css("font-size", font_size, "important");
   switch (font_family) {
     case 0:
       $("#cont").addClass("lato");

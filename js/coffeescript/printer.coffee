@@ -50,9 +50,10 @@ sexydown = ->
 
 sexydownPart2 = (u) ->
   # Font settings:
-  font_size = $("font-size").val
-  font_ms = $("font-measure").val
-  font_family = $("font-family").val
+  font_size = document.getElementById('font-size').value
+  font_ms = document.getElementById('font-measure').selectedIndex
+  font_family = document.getElementById('font-family').selectedIndex
+  
   switch font_family
     when 0
       measurement = "pt"
@@ -61,7 +62,7 @@ sexydownPart2 = (u) ->
     when 2
       measurement = "rem"
   font_size += measurement;
-  $("#cont").css "font_size", "font_size"
+  $("#cont").css "font-size", font_size, "important"
   switch font_family
     when 0
       # Lato
