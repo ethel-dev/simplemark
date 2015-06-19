@@ -56,7 +56,7 @@ sexydownPart2 = function(u) {
   font_size = document.getElementById('font-size').value;
   font_ms = document.getElementById('font-measure').selectedIndex;
   font_family = document.getElementById('font-family').selectedIndex;
-  switch (font_family) {
+  switch (font_ms) {
     case 0:
       measurement = "pt";
       break;
