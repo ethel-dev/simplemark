@@ -62,7 +62,6 @@ sexydownPart2 = (u) ->
     when 2
       measurement = "rem"
   font_size += measurement;
-  $("#cont").css "font-size", font_size, "important"
   switch font_family
     when 0
       # Lato
@@ -84,6 +83,7 @@ sexydownPart2 = (u) ->
     # Use Textile!
     s = textile u
     document.getElementById("cont").innerHTML = s
+    $("#cont > p").css "font-size", font_size
     window.setTimeout ->
       window.print()
       return
@@ -109,6 +109,7 @@ sexydownPart2 = (u) ->
     
     s = marked u
     document.getElementById("cont").innerHTML = s
+    $("#cont > p").css "font-size", font_size
     window.setTimeout ->
       window.print()
       return

@@ -67,7 +67,6 @@ sexydownPart2 = function(u) {
       measurement = "rem";
   }
   font_size += measurement;
-  $("#cont").css("font-size", font_size, "important");
   switch (font_family) {
     case 0:
       $("#cont").addClass("lato");
@@ -88,6 +87,7 @@ sexydownPart2 = function(u) {
   if (txt === true) {
     s = textile(u);
     document.getElementById("cont").innerHTML = s;
+    $("#cont > p").css("font-size", font_size);
     return window.setTimeout(function() {
       window.print();
     }, 100);
@@ -109,6 +109,7 @@ sexydownPart2 = function(u) {
     });
     s = marked(u);
     document.getElementById("cont").innerHTML = s;
+    $("#cont > p").css("font-size", font_size);
     return window.setTimeout(function() {
       window.print();
     }, 100);
