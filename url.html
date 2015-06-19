@@ -1,146 +1,164 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Stuff the website needs, etc. -->
-        <title>Sexydown</title>
-        <meta name="description" content="Sexydown is a dead simple way to make code printable.">
-        <meta name="author" content="Ethan Arterberry">
-        <meta name="google-site-verification" content="pffroddbxnVVrRWWcsu0UncgFdn-rrQLX86bEbL723A"/>
-        
-        <!-- Bootstrap, templates, etc. -->
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <!-- Optional theme -->
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        
-        <!-- Compiled CoffeeScript -->
-        <script src="js/coffeescript/compiled/parameter.js"></script>
-        <script src="js/coffeescript/compiled/printer.js"></script>
-        <script src="js/coffeescript/compiled/window.js"></script>
-        
-        
-        <!-- Custom CSS. -->
-        <link href="css/custom.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/print.css" type="text/css" media="print"/>
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-        
-        <!-- Custom fonts. -->
-        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Gloria+Hallelujah|Open+Sans:400italic,700italic,700,400|Merriweather:400,400italic,700,700italic|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-    </head>
-    <body onload="load()">
-                <nav class="navbar navbar-inverse navbar-fixed-top" id="nav">
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                      <a class="navbar-brand" href="http://ethanarterberry.com/Sexydown">Sexydown 3</a>
-                    </div>
-                    <div id="navbar" class="collapse navbar-collapse">
-                      <ul class="nav navbar-nav">
-                        <li class="active"><a href="http://ethanarterberry.com/Sexydown">Home</a></li>
-                        <li id="modedrop" class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mode<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="index.html">Go Back</a></li>
-                                <li class="divider"></li>
-                                <li class="active"><a title="(BETA) Create a custom URL." href="url.html">URL Parameters</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="http://ethanarterberry.com/Sexydown/ex/ex.html">Examples</a></li>
-                        <li><a href="https://github.com/sargeant45/Sexydown">GitHub project</a></li>
-                        <li><a href="http://ethanarterberry.com/">More from Ethan Arterberry</a></li>
-                      </ul>
-                    </div>
-                </nav>
-                <div class="container-fluid">
-                    <div class="main" id="main" style="padding-top: 50px;">
-                        <h1 id="title"><b>Sexydown 3:</b> A sexy way to print <span id="titlespan">Markdown.</span></h1>
-                        <p id="bodytext"><p><strong>Sexydown</strong> is a useful, completely public domain, free website that prints code beautifully minimalistic on paper. It can compile Markdown and Textile markup to HTML and print it with a variety of options, and it can print 118 languages in beautifully syntax-highlighted glory on paper. Better yet, you can create a custom URL using the <a href="url.html">URL generator</a> that will check the options for you. Sexydown 3 has many new features that make it a fully-featured printing utility belt that you'll keep in your bookmarks for all eternity. If you're a nerd, you will be pleased to hear that Sexydown 3 is public domain on <a href="https://github.com/sargeant45/Sexydown">GitHub.</a></p>
-                        <p><b>URL Generator:</b> Create a custom URL with options built in for speed.</p>
-                        <hr>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Stuff the website needs, etc. -->
+    <title>Sexydown</title>
+    <meta name="description" content="Sexydown is a dead simple way to make code printable.">
+    <meta name="author" content="Ethan Arterberry">
+    <meta name="google-site-verification" content="pffroddbxnVVrRWWcsu0UncgFdn-rrQLX86bEbL723A" />
+
+    <!-- Bootstrap, templates, etc. -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- Compiled CoffeeScript -->
+    <script src="js/coffeescript/compiled/parameter.js"></script>
+    <script src="js/coffeescript/compiled/printer.js"></script>
+    <script src="js/coffeescript/compiled/window.js"></script>
+
+
+    <!-- Custom CSS. -->
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Custom fonts. -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Gloria+Hallelujah|Open+Sans:400italic,700italic,700,400|Merriweather:400,400italic,700,700italic|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body onload="load()">
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="nav">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://ethanarterberry.com/Sexydown">Sexydown 3</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="http://ethanarterberry.com/Sexydown">Home</a></li>
+                <li id="modedrop" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mode<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="index.html">Go Back</a></li>
+                        <li class="divider"></li>
+                        <li class="active"><a title="(BETA) Create a custom URL." href="url.html">URL Parameters</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://ethanarterberry.com/Sexydown/ex/ex.html">Examples</a></li>
+                <li><a href="https://github.com/sargeant45/Sexydown">GitHub project</a></li>
+                <li><a href="http://ethanarterberry.com/">More from Ethan Arterberry</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="main" id="main" style="padding-top: 50px;">
+            <h1 id="title"><b>Sexydown 3:</b> A sexy way to print <span id="titlespan">Markdown.</span></h1>
+            <p id="bodytext">
+                <p><strong>Sexydown</strong> is a useful, completely public domain, free website that prints code beautifully minimalistic on paper. It can compile Markdown and Textile markup to HTML and print it with a variety of options, and it can print 118 languages in beautifully syntax-highlighted glory on paper. Better yet, you can create a custom URL using the <a href="url.html">URL generator</a> that will check the options for you. Sexydown 3 has many new features that make it a fully-featured printing utility belt that you'll keep in your bookmarks for all eternity. If you're a nerd, you will be pleased to hear that Sexydown 3 is public domain on <a href="https://github.com/sargeant45/Sexydown">GitHub.</a></p>
+                <p><b>URL Generator:</b> Create a custom URL with options built in for speed.</p>
+                <hr>
+                <br>
+                <input type="checkbox" id="code" onchange='var txt=document.getElementById("code").checked;txt===!0?($("#md-options :input, #other-options :input").attr("disabled",!0),$("#md-options :input, #other-options :input").attr("checked",!1),$("#codeoptions").collapse("show")):($("#md-options :input, #other-options :input").attr("disabled",!1),$("#codeoptions").collapse("hide"));'>&nbsp;&nbsp;<span>Code printing?</span>
+                <br>
+                <div id="codeoptions" class="collapse">
+                    <label for="theme">Choose a <span class="inconsolata">highlight.js</span> theme:</label>
+                    <br>
+                    <select id="theme" title="Code theme." onchange="$('#custom').collapse(4===this.selectedIndex?'show':'hide');">
+                        <option selected="selected" id="Google-Code">Google Code</option>
+                        <option id="GitHub">GitHub</option>
+                        <option id="XCode">XCode</option>
+                        <option id="Visual-Studio">Visual Studio</option>
+                        <option id="Other" title="highlight.js CSS file from a CDN">Other</option>
+                    </select>
+                    <br>
+                    <div id="custom" class="collapse">
+                        <label for="customlink">Custom theme: <a href="https://cdnjs.com/libraries/highlight.js">(options here)</a>&nbsp;&nbsp;</label>
                         <br>
-                      	<input type="checkbox" id="code" onchange='var txt=document.getElementById("code").checked;txt===!0?($("#md-options :input, #other-options :input").attr("disabled",!0),$("#md-options :input, #other-options :input").attr("checked",!1),$("#codeoptions").collapse("show")):($("#md-options :input, #other-options :input").attr("disabled",!1),$("#codeoptions").collapse("hide"));'>&nbsp;&nbsp;<span>Code printing?</span>
-                        <br>
-                        <div id="codeoptions" class="collapse"> 
-                          <label for="theme">Choose a <span class="inconsolata">highlight.js</span> theme:</label>
-                          <br>
-                          <select id="theme" title="Code theme." onchange="$('#custom').collapse(4===this.selectedIndex?'show':'hide');">
-                            <option selected="selected" id="Google-Code">Google Code</option>
-                            <option id="GitHub">GitHub</option>
-                            <option id="XCode">XCode</option>
-                            <option id="Visual-Studio">Visual Studio</option>
-                            <option id="Other" title="highlight.js CSS file from a CDN">Other</option>
-                          </select>
-                          <br>
-                          <div id="custom" class="collapse">
-                            <label for="customlink">Custom theme: <a href="https://cdnjs.com/libraries/highlight.js">(options here)</a>&nbsp;&nbsp;</label>
-                            <br>
-                            <input placeholder="link to hljs stylesheet" type="text" id="customlink" class="input inconsolata" onblur="setbg('white')" onfocus="setbg('#e5fff3');" style="width: 15%;">
-                          </div>
-                        </div>
-                        <br>
-                        <textarea class="markdown-input" id="url-text" onblur="setbg('white')" onfocus="setbg('#e5fff3');" placeholder="Put Markdown/Textile here. It will be welded into the URL as default text."></textarea>
-                        <br>
-                        <label for="gistid">Gist ID:&nbsp;</label><input class="input" type="text" title="ID of a GitHub Gist. [NOTE: Default text will be overridden.]" placeholder="ID of a GitHub Gist. [NOTE: Default text will be overridden.]" onblur="setbg('white')" onfocus="setbg('#e5fff3');" style="width:50%;" id="gistid">
-                        <br>
-                        <div id="md-options">
-                            <p><u><b>Markdown Options:</b></u></p>
-                            <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
-                            <br>
-                            <input type="checkbox" checked="yes" id="smartlists">&nbsp;&nbsp;<span>Enable smart lists?</span>
-                            <br>
-                            <input type="checkbox" id="sanitize">&nbsp;&nbsp;<span>Sanitize Markdown code (ignore anything other than Markdown code)?</span>
-                            <br>
-                            <input type="checkbox" id="pedantic">&nbsp;&nbsp;<span>Use pedantic Markdown?</span>
-                            <br>
-                            <input type="checkbox" id="smartypants">&nbsp;&nbsp;<span>Enable SmartyPants (use 'smart' quotes and dashes)?</span>
-                            <br>
-                        </div>
-                        <br>
-                        <div id="other-options">
-                            <p><u><b>Other Options:</b></u></p>
-                            <input type="checkbox" id="txt" title="Textile is an alternative markup language to Markdown, which means the syntax is very different.">&nbsp;&nbsp;<span>Enable Textile?</span>
-                            <br>
-                            <span>Font size:</span>&nbsp;&nbsp;<input type="number" value="12" id="font-size" class="num" min="1">&nbsp;<select id="font-measure"><option name="pt">pt</option><option name="px">px</option><option name="rem">rem</option></select>
-                            <br>
-                            <span>Font family:</span>&nbsp;&nbsp;
-                            <select id="font-family">
-                                <option id="lato">Lato</option>
-                                <option id="gloria">Gloria Hallelujah</option>
-                                <option id="opensans">Open Sans</option>
-                                <option id="merriweather" selected>Merriweather</option>
-                                <option id="inconsolata">Inconsolata</option>
-                            </select>
-                        </div>
-                        <hr>
-                        <button class="btn btn-primary" type="button" title="Generate URL." onclick="generateurl();">Generate it now!</button>
-                        <br><br>
-                        <p><b>Your URL is:</b></p>
-                        <pre><a id="link">http://ethanarterberry.com/Sexydown/?</a></pre>
+                        <input placeholder="link to hljs stylesheet" type="text" id="customlink" class="input inconsolata" onblur="setbg('white')" onfocus="setbg('#e5fff3');" style="width: 15%;">
                     </div>
                 </div>
-        <script>
-        function setbg(color)
-        {
+                <br>
+                <textarea class="markdown-input" id="url-text" onblur="setbg('white')" onfocus="setbg('#e5fff3');" placeholder="Put Markdown/Textile here. It will be welded into the URL as default text."></textarea>
+                <br>
+                <label for="gistid">Gist ID:&nbsp;</label>
+                <input class="input" type="text" title="ID of a GitHub Gist. [NOTE: Default text will be overridden.]" placeholder="ID of a GitHub Gist. [NOTE: Default text will be overridden.]" onblur="setbg('white')" onfocus="setbg('#e5fff3');" style="width:50%;" id="gistid">
+                <br>
+                <div id="md-options">
+                    <p><u><b>Markdown Options:</b></u></p>
+                    <input type="checkbox" checked="yes" id="gfm">&nbsp;&nbsp;<span>Enable GitHub Flavored Markdown?</span>
+                    <br>
+                    <input type="checkbox" checked="yes" id="smartlists">&nbsp;&nbsp;<span>Enable smart lists?</span>
+                    <br>
+                    <input type="checkbox" id="sanitize">&nbsp;&nbsp;<span>Sanitize Markdown code (ignore anything other than Markdown code)?</span>
+                    <br>
+                    <input type="checkbox" id="pedantic">&nbsp;&nbsp;<span>Use pedantic Markdown?</span>
+                    <br>
+                    <input type="checkbox" id="smartypants">&nbsp;&nbsp;<span>Enable SmartyPants (use 'smart' quotes and dashes)?</span>
+                    <br>
+                </div>
+                <br>
+                <div id="other-options">
+                    <p><u><b>Other Options:</b></u></p>
+                    <input type="checkbox" id="txt" title="Textile is an alternative markup language to Markdown, which means the syntax is very different.">&nbsp;&nbsp;<span>Enable Textile?</span>
+                    <br>
+                    <span>Font size:</span>&nbsp;&nbsp;
+                    <input type="number" value="12" id="font-size" class="num" min="1">&nbsp;
+                    <select id="font-measure">
+                        <option name="pt">pt</option>
+                        <option name="px">px</option>
+                        <option name="rem">rem</option>
+                    </select>
+                    <br>
+                    <span>Font family:</span>&nbsp;&nbsp;
+                    <select id="font-family">
+                        <option id="lato">Lato</option>
+                        <option id="gloria">Gloria Hallelujah</option>
+                        <option id="opensans">Open Sans</option>
+                        <option id="merriweather" selected>Merriweather</option>
+                        <option id="inconsolata">Inconsolata</option>
+                    </select>
+                </div>
+                <hr>
+                <button class="btn btn-primary" type="button" title="Generate URL." onclick="generateurl();">Generate it now!</button>
+                <br>
+                <br>
+                <p><b>Your URL is:</b></p>
+                <pre><a id="link">http://ethanarterberry.com/Sexydown/?</a></pre>
+        </div>
+    </div>
+    <script>
+        function setbg(color) {
             document.getElementById("ugly").style.background = color;
             document.getElementById("sourcecode").style.background = color;
             document.getElementById("lang").style.background = color;
         }
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        
-          ga('create', 'UA-56480602-4', 'auto');
-          ga('send', 'pageview');
-        </script>
-    </body>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-56480602-4', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
 </html>
