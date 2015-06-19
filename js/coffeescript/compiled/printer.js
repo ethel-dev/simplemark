@@ -87,8 +87,8 @@ sexydownPart2 = function(u) {
   if (txt === true) {
     s = textile(u);
     document.getElementById("cont").innerHTML = s;
-    $("#cont > p").css("font-size", font_size);
     return window.setTimeout(function() {
+      $("#cont > p").css("font-size", font_size);
       window.print();
     }, 100);
   } else {
@@ -109,8 +109,8 @@ sexydownPart2 = function(u) {
     });
     s = marked(u);
     document.getElementById("cont").innerHTML = s;
-    $("#cont > p").css("font-size", font_size);
     return window.setTimeout(function() {
+      $("#cont > p").css("font-size", font_size);
       window.print();
     }, 100);
   }

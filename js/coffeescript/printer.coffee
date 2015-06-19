@@ -83,8 +83,8 @@ sexydownPart2 = (u) ->
     # Use Textile!
     s = textile u
     document.getElementById("cont").innerHTML = s
-    $("#cont > p").css "font-size", font_size
     window.setTimeout ->
+      $("#cont > p").css "font-size", font_size
       window.print()
       return
     , 100
@@ -109,8 +109,8 @@ sexydownPart2 = (u) ->
     
     s = marked u
     document.getElementById("cont").innerHTML = s
-    $("#cont > p").css "font-size", font_size
     window.setTimeout ->
+      $("#cont > p").css "font-size", font_size
       window.print()
       return
     , 100
