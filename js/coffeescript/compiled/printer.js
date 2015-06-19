@@ -66,7 +66,7 @@ sexydownPart2 = function(u) {
     case 2:
       measurement = "rem";
   }
-  font_size += measurement;
+  font_size = font_size + measurement;
   switch (font_family) {
     case 0:
       $("#cont").addClass("lato");

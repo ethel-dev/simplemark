@@ -54,14 +54,14 @@ sexydownPart2 = (u) ->
   font_ms = document.getElementById('font-measure').selectedIndex
   font_family = document.getElementById('font-family').selectedIndex
   
-  switch font_family
+  switch font_ms
     when 0
       measurement = "pt"
     when 1
       measurement = "px"
     when 2
       measurement = "rem"
-  font_size += measurement;
+  font_size = font_size + measurement;
   switch font_family
     when 0
       # Lato
