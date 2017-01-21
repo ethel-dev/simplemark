@@ -1,7 +1,7 @@
 # <printer.coffee>
 # the markdown/code printer part
-# a file in the Coffeescript port of Sexydown's JavaScript
-# written by Ethan Arterberry in 2015, public domain under the Unlicense
+# a file in the Coffeescript port of Simplemark's JavaScript
+# written by Ethan Arterberry in 2017, public domain under the Unlicense
 
 sexydown = ->
   $("#modedrop").fadeOut()
