@@ -195,7 +195,7 @@ papercode = ->
           
           # Set window title
           capitalizedLang = lang.charAt(0).toUpperCase() + lang.slice(1)
-          document.title = 'Sexydown - ' + capitalizedLang + ' Document'
+          document.title = 'Simplemark - ' + capitalizedLang + ' Document'
           
           # Open print dialog
           window.print()
@@ -224,7 +224,7 @@ papercode = ->
           
           # Pretty window title
           capitalizedLang = lang.charAt(0).toUpperCase() + lang.slice(1)
-          document.title = 'Sexydown - ' + capitalizedLang + ' Document'
+          document.title = 'Simplemark - ' + capitalizedLang + ' Document'
           return
         else
           # Auto highlight based on automatic language chooser from highlight.js
@@ -232,7 +232,7 @@ papercode = ->
           $('pre code').each (i, block) ->
             hljs.highlightBlock block
             return
-          document.title = 'Sexydown - Code Document'
+          document.title = 'Simplemark - Code Document'
           
           # Print!
           window.print()

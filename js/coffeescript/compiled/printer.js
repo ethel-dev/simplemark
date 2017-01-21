@@ -186,7 +186,7 @@ papercode = function() {
           hljs.highlightBlock(block);
         });
         capitalizedLang = lang.charAt(0).toUpperCase() + lang.slice(1);
-        document.title = 'Sexydown - ' + capitalizedLang + ' Document';
+        document.title = 'Simplemark - ' + capitalizedLang + ' Document';
         window.print();
         if (typeof console !== "undefined" && console !== null) {
           console.log('Gist ' + gistid + ' loaded successfully.');
@@ -208,13 +208,13 @@ papercode = function() {
             hljs.highlightBlock(block);
           });
           capitalizedLang = lang.charAt(0).toUpperCase() + lang.slice(1);
-          document.title = 'Sexydown - ' + capitalizedLang + ' Document';
+          document.title = 'Simplemark - ' + capitalizedLang + ' Document';
         } else {
           output.innerText = code;
           $('pre code').each(function(i, block) {
             hljs.highlightBlock(block);
           });
-          document.title = 'Sexydown - Code Document';
+          document.title = 'Simplemark - Code Document';
           window.print();
         }
       }

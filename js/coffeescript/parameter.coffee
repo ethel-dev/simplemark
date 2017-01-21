@@ -1,6 +1,6 @@
 # <parameter.coffee>
 # the url parameter part
-# a file in the CoffeeScript port of Simpledown's JavaScript
+# a file in the CoffeeScript port of Simplemark's JavaScript
 
 arrayQuery = ->
   # 'borrowed' from http://stackoverflow.com/questions/4297765/make-a-javascript-array-from-url
