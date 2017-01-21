@@ -182,12 +182,12 @@ generateurl = function() {
       case 4:
         ff = 'incons';
     }
-    link = 'http://soops.github.io/simplemark?gfm=' + gfm + '&sl=' + smartlists + '&san=' + sanitize + '&ped=' + pedantic + '&sp=' + smartypants + '&txt=' + txt + '&fs=' + font_size + '&ff=' + ff + '&val=' + val + '&gistid=' + gist;
+    link = 'https://soops.github.io/simplemark/?gfm=' + gfm + '&sl=' + smartlists + '&san=' + sanitize + '&ped=' + pedantic + '&sp=' + smartypants + '&txt=' + txt + '&fs=' + font_size + '&ff=' + ff + '&val=' + val + '&gistid=' + gist;
   } else {
     if (customlink === '') {
-      link = 'http://soops.github.io/simplemark?code=' + code + '&val=' + val + '&gistid=' + gist + '&theme=' + theme;
+      link = 'https://soops.github.io/simplemark/?code=' + code + '&val=' + val + '&gistid=' + gist + '&theme=' + theme;
     } else {
-      link = 'http://soops.github.io/simplemark?code=' + code + '&val=' + val + '&gistid=' + gist + '&theme=4&ctheme=' + customlink;
+      link = 'https://soops.github.io/simplemark/?code=' + code + '&val=' + val + '&gistid=' + gist + '&theme=4&ctheme=' + customlink;
     }
   }
   document.getElementById('link').innerHTML = link;

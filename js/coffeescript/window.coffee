@@ -1,6 +1,6 @@
 # <window.coffee>
 # the window controls part
-# a file in the Coffeescript port of Simpledown's JavaScript
+# a file in the Coffeescript port of Simplemark's JavaScript
 # written by Ethan Arterberry in 2017, public domain under the Unlicense
 
 windowcontroller = (what) ->
